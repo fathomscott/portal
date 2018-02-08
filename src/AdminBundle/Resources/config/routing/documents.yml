@@ -1,0 +1,8 @@
+admin_document_index:
+    path:     /
+    defaults: { _controller: admin.document_controller:indexAction }
+
+admin_document_download:
+    path:     /{document}/downlaod
+    defaults: { _controller: admin.document_controller:downloadAction }
+    requirements: { document: \d+ }

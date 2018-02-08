@@ -1,0 +1,70 @@
+{% if pageCount > 1 %}
+    <div class="dataTables_paginate paging_simple_numbers">
+        <ul class="pagination">
+            {% if previous is defined %}
+                <li class="previous paginate_button ">
+                    <a href="{{ path(route, query|merge({(pageParameterName): previous})) }}">&laquo;&nbsp;{{ 'Previous'|trans }}</a>
+                </li>
+            {% else %}
+                <li class="previous paginate_button disabled">
+                    <span>&laquo;&nbsp;{{ 'Previous'|trans }}</span>
+                </li>
+            {% endif %}
+
+            {% if startPage > 1 %}
+                <li class="paginate_button">
+                    <a href="{{ path(route, query|merge({(pageParameterName): 1})) }}">1</a>
+                </li>
+                {% if startPage == 3 %}
+                    <li class="paginate_button">
+                        <a href="{{ path(route, query|merge({(pageParameterName): 2})) }}">2</a>
+                    </li>
+                {% elseif startPage != 2 %}
+                    <li class="disabled paginate_button">
+                        <span>&hellip;</span>
+                    </li>
+                {% endif %}
+            {% endif %}
+
+            {% for page in pagesInRange %}
+                {% if page != current %}
+                    <li class="paginate_button">
+                        <a href="{{ path(route, query|merge({(pageParameterName): page})) }}">{{ page }}</a>
+                    </li>
+                {% else %}
+                    <li class="active paginate_button">
+                        <span>{{ page }}</span>
+                    </li>
+                {% endif %}
+
+            {% endfor %}
+
+            {% if pageCount > endPage %}
+                {% if pageCount > (endPage + 1) %}
+                    {% if pageCount > (endPage + 2) %}
+                        <li class="disabled paginate_button">
+                            <span>&hellip;</span>
+                        </li>
+                    {% else %}
+                        <li class="paginate_button">
+                            <a href="{{ path(route, query|merge({(pageParameterName): (pageCount - 1)})) }}">{{ pageCount -1 }}</a>
+                        </li>
+                    {% endif %}
+                {% endif %}
+                <li class="paginate_button">
+                    <a href="{{ path(route, query|merge({(pageParameterName): pageCount})) }}">{{ pageCount }}</a>
+                </li>
+            {% endif %}
+
+            {% if next is defined %}
+                <li class="next paginate_button">
+                    <a href="{{ path(route, query|merge({(pageParameterName): next})) }}">{{ 'Next'|trans }}&nbsp;&raquo;</a>
+                </li>
+            {% else %}
+                <li class="next disabled paginate_button">
+                    <span>{{ 'Next'|trans }}&nbsp;&raquo;</span>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+{% endif %}

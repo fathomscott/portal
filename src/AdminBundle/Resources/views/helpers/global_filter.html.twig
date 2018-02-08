@@ -1,0 +1,8 @@
+<div class="pull-right m-r-30">
+    {{ form_start(form) }}
+        {{ form_widget(form.global_filter_state) }}
+        {{ form_widget(form.global_filter_district, {'attr': {'class': 'global-filter-state'}}) }}
+        <button class="btn btn-primary m-l-5" type="submit">{{ 'verb.filter'|trans }}</button>
+        <button class="btn btn-default m-l-5" type="submit" name="global_filter_reset">{{ 'verb.reset'|trans }}</button>
+    {{ form_end(form) }}
+</div>

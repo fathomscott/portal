@@ -1,0 +1,21 @@
+BackendBundle\Entity\SuperAdmin:
+    SuperAdmin:
+        email: admin@example.com
+        firstName: John
+        lastName: Smith
+        salt: <generateSalt()>
+        confirmationToken: <generateSalt()>
+        password: <generatePassword('password', $salt)>
+        roles: ['ROLE_SUPER_ADMIN']
+        status: 1
+        accountType: ROLE_SUPER_ADMIN
+    SuperAdmin2:
+        email: justin@example.com
+        firstName: Justin
+        lastName: Dalryple
+        salt: <generateSalt()>
+        confirmationToken: <generateSalt()>
+        password: <generatePassword('password', $salt)>
+        roles: ['ROLE_SUPER_ADMIN']
+        status: 1
+        accountType: ROLE_SUPER_ADMIN

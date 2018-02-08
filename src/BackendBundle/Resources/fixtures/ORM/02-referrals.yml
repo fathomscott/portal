@@ -1,0 +1,5 @@
+BackendBundle\Entity\Referral:
+    AgentReferral{11..100}:
+        referringUser: "@Agent<numberBetween(1, 10)>"
+        referredUser: "@Agent<current()>"
+        created: <dateTimeBetween('-3 months', 'now')>

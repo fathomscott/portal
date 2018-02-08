@@ -1,0 +1,5 @@
+BackendBundle\Entity\SuperAdmin:
+    type: entity
+    table: super_admin
+    repositoryClass: BackendBundle\Repository\SuperAdminRepository
+    fields:

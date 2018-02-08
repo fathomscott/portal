@@ -1,0 +1,17 @@
+BackendBundle\Entity\CreditCard:
+    type: entity
+    table: credit_card
+    repositoryClass: BackendBundle\Repository\CreditCardRepository
+    fields:
+        lastFour:
+            type: string
+            length: 4
+            fixed: false
+            nullable: false
+            column: last_four
+        cardToken:
+            type: string
+            length: 100
+            fixed: false
+            nullable: true
+            column: card_token

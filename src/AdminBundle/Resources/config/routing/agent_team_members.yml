@@ -1,0 +1,15 @@
+admin_agent_team_member_index:
+    path:     /
+    defaults: { _controller: admin.agent_team_member_controller:indexAction }
+
+admin_agent_team_member_add:
+    path:     /add
+    defaults: { _controller: admin.agent_team_member_controller:manageAction }
+
+admin_agent_team_member_accept_invitation:
+    path:     /{token}/accept-invitation
+    defaults: { _controller: admin.agent_team_member_controller:acceptInvitationAction }
+
+admin_agent_team_member_delete:
+    path:     /{teamMember}/delete
+    defaults: { _controller: admin.agent_team_member_controller:deleteAction }

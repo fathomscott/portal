@@ -1,0 +1,22 @@
+admin_agent_document_index:
+    path:     /
+    defaults: { _controller: admin.agent_document_controller:indexAction }
+
+admin_agent_document_add:
+    path:     /add
+    defaults: { _controller: admin.agent_document_controller:addAction }
+
+admin_agent_document_edit:
+    path:     /edit/{document}
+    defaults: { _controller: admin.agent_document_controller:manageAction }
+    requirements: { document: \d+ }
+
+admin_agent_document_delete:
+    path:     /{document}/delete
+    defaults: { _controller: admin.agent_document_controller:deleteAction }
+    requirements: { document: \d+ }
+
+admin_agent_document_download:
+    path:     /{document}/downlaod
+    defaults: { _controller: admin.agent_document_controller:downloadAction }
+    requirements: { document: \d+ }

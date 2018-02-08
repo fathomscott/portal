@@ -1,0 +1,57 @@
+admin_agent_index:
+    path:     /
+    defaults: { _controller: admin.agent_controller:indexAction }
+
+admin_agent_add:
+    path:     /add
+    defaults: { _controller: admin.agent_controller:manageAction }
+
+admin_agent_edit:
+    path:     /edit/{agent}
+    defaults: { _controller: admin.agent_controller:manageAction }
+    requirements: { agent: \d+ }
+
+admin_agent_view:
+    path:     /{agent}
+    defaults: { _controller: admin.agent_controller:viewAction }
+    requirements: { agent: \d+ }
+
+admin_agent_delete:
+    path:     /{agent}/delete
+    defaults: { _controller: admin.agent_controller:deleteAction }
+
+admin_agent_change_password:
+    path:     /{agent}/change-password
+    defaults: { _controller: admin.agent_controller:changePasswordAction }
+
+admin_agent_subscription:
+    path:     /{agent}/subsciption
+    defaults: { _controller: admin.agent_controller:subscriptionAction }
+
+admin_agent_transactions:
+    path:     /{agent}/transactions
+    defaults: { _controller: admin.agent_controller:transactionAction }
+
+admin_agent_charge:
+    path:     /{agent}/charge
+    defaults: { _controller: admin.agent_controller:chargeAction }
+
+admin_agent_refund:
+    path:     /{agent}/refund/{transaction}
+    defaults: { _controller: admin.agent_controller:refundAction }
+
+admin_agent_payment_method:
+    path:     /{agent}/payment-method
+    defaults: { _controller: admin.agent_controller:paymentMethodAction }
+
+admin_agent_send_activation:
+    path:     /{agent}/send-invitation
+    defaults: { _controller: admin.agent_controller:sendActivationEmailAction }
+
+admin_agent_filter:
+    path:     /fiter
+    defaults: { _controller: admin.agent_controller:filterAction }
+
+admin_agent_reset:
+    path:     /reset
+    defaults: { _controller: admin.agent_controller:resetAction }

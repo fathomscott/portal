@@ -1,0 +1,32 @@
+{% extends "BackendBundle:Mail:base.html.twig" %}
+{% block subject %}
+Your subscription successfully billed.
+{% endblock %}
+
+{% block body_text %}
+Hello {{ firstName }},
+Your subscription successfully billed.
+
+Amount: {{ amount }}
+
+Referral Discount: {{ referralDiscount }}
+
+Thank you again for continuing to support Fantom Realty!
+
+Sincerely,
+{{ signature }}
+{% endblock %}
+
+{% block html_message %}
+Hello {{ firstName }},<br/>
+Your subscription successfully billed.<br/>
+<br/>
+Amount: {{ amount }}<br/>
+<br/>
+Referral Discount: {{ referralDiscount }}<br/>
+<br/>
+Thank you again for continuing to support Fantom Realty!<br/>
+<br/>
+Sincerely,<br/>
+{{ signature }}
+{% endblock %}

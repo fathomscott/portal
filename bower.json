@@ -1,0 +1,17 @@
+{
+  "name": "subscription.tool",
+  "version": "1.0.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "web/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "color_admin" : "git@github.com:fathomrealty/color-admin.git",
+    "cropper": "~2.3.0",
+    "chosen" : "1.5.1"
+  }
+}

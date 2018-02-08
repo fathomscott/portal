@@ -1,0 +1,47 @@
+{% extends '@Admin/layout.html.twig' %}
+
+{% block title %}{{ 'navigation.system_message.system_messages'|trans }}{% endblock %}
+
+{% block breadcrumb %}
+    <li class="active">{{ 'navigation.system_message.system_messages'|trans }}</li>
+{% endblock %}
+
+{% block content %}
+    <a class="pull-right btn btn-primary m-b-10" href="{{ path('admin_system_message_add') }}">+ {{ 'verb.add'|trans }}</a>
+    <table id="data-table" class="table table-striped table-bordered dataTable no-footer dtr-inline list-table">
+        <thead>
+            <tr>
+                <th class="{{ 'a.id'|sort_class }}">{{ knp_pagination_sortable(systemMessages, 'labels.id'|trans(), 'a.id') }}</th>
+                <th width="130" class="{{ 'a.startDate'|sort_class }}">{{ knp_pagination_sortable(systemMessages, 'labels.start_date'|trans(), 'a.startDate') }}</th>
+                <th width="130" class="{{ 'a.endDate'|sort_class }}">{{ knp_pagination_sortable(systemMessages, 'labels.end_date'|trans(), 'a.endDate') }}</th>
+                <th>{{ 'navigation.system_message.system_message'|trans }}</th>
+                <th>{{ 'labels.actions'|trans }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for systemMessage in systemMessages %}
+                <tr>
+                    <td>{{ systemMessage.id }}</td>
+                    <td>{{ systemMessage.startDate ? systemMessage.startDate|date : '-' }}</td>
+                    <td>{{ systemMessage.endDate ? systemMessage.endDate|date : '-' }}</td>
+                    <td>{{ systemMessage.message }}</td>
+                    <td>
+                        <div class="btn-group">
+                            <a href="javascript:;" data-toggle="dropdown" class="btn btn-sm btn-info dropdown-toggle" aria-expanded="false">
+                                {{ 'labels.actions'|trans }} <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ path('admin_system_message_edit', {'systemMessage' : systemMessage.id}) }}">{{ 'verb.edit'|trans }}</a></li>
+                                <li><a href="{{ path('admin_system_message_delete', {'systemMessage': systemMessage.id}) }}" class="confirm-delete">{{ 'verb.delete'|trans }}</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="col-md-5 media-middle"><p><strong>{{ 'labels.total_results'| trans }}:</strong> {{ total }}</p></div>
+    <div class="col-md-7 text-right">{{ knp_pagination_render(systemMessages) }}</div>
+
+    {{ include('@Admin/helpers/confirm_modal.html.twig') }}
+{% endblock content %}

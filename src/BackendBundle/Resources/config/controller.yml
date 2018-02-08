@@ -1,0 +1,7 @@
+services:
+    backend.security_controller:
+        class: BackendBundle\Controller\SecurityController
+        arguments:
+            - "@backend.user_manager"
+        calls:
+            - [setContainer, ['@service_container']]

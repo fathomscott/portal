@@ -1,0 +1,59 @@
+{% extends '@Admin/layout.html.twig' %}
+
+{% block title %}{{ 'navigation.settings.staff'|trans }}{% endblock %}
+
+{% block breadcrumb %}
+    <li class="active">{{ 'navigation.settings.staff'|trans }}</li>
+{% endblock %}
+
+{% block content %}
+    <a class="pull-right btn btn-primary m-b-10" href="{{ path('admin_staff_add') }}">+ {{ 'verb.add'|trans }}</a>
+    <table id="data-table" class="table table-striped table-bordered dataTable no-footer dtr-inline list-table">
+        <thead>
+            <tr>
+                <th class="{{ 'a.id'|sort_class }}">{{ knp_pagination_sortable(staffs, 'labels.id'|trans(), 'a.id') }}</th>
+                <th class="{{ 'a.email'|sort_class }}">{{ knp_pagination_sortable(staffs, 'labels.email'|trans(), 'a.email') }}</th>
+                <th class="{{ 'a.firstName'|sort_class }}">{{ knp_pagination_sortable(staffs, 'labels.full_name'|trans(), 'a.firstName') }}</th>
+                <th class="{{ 'a.status'|sort_class }}">{{ knp_pagination_sortable(staffs, 'labels.status'|trans(), 'a.status') }}</th>
+                <th class="{{ 'a.accountType'|sort_class }}">{{ knp_pagination_sortable(staffs, 'labels.account_type'|trans(), 'a.accountType') }}</th>
+                <th class="{{ 'a.created'|sort_class }}">{{ knp_pagination_sortable(staffs, 'labels.created'|trans(), 'a.created') }}</th>
+                <th>{{ 'labels.actions'|trans }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for staff in staffs %}
+                <tr>
+                    <td>{{ staff.id }}</td>
+                    <td>
+                        <a href="mailto: {{ staff.email }}">
+                            {{ staff.email }}
+                        </a>
+                    </td>
+                    <td>{{ staff.fullName }}</td>
+                    <td>{{ staff.statusName|trans }}</td>
+                    <td>{{ staff.accountType }}</td>
+                    <td>{{ staff.created|date }}</td>
+                    <td>
+                        {% if staff.accountType == 'ROLE_ADMIN' %}
+                            <div class="btn-group">
+                                <a href="javascript:;" data-toggle="dropdown" class="btn btn-sm btn-info dropdown-toggle" aria-expanded="false">
+                                    {{ 'labels.actions'|trans }} <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ path('admin_staff_edit', {'staff' : staff.id}) }}">{{ 'verb.edit'|trans }}</a></li>
+                                    {% if app.user.id != staff.id %}
+                                        <li><a class="confirm-delete" href="{{ path('admin_staff_delete', {'staff' : staff.id}) }}">{{ 'verb.delete'|trans }}</a></li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="col-md-5 media-middle"><p><strong>{{ 'labels.total_results'| trans }}:</strong> {{ total }}</p></div>
+    <div class="col-md-7 text-right">{{ knp_pagination_render(staffs) }}</div>
+
+    {{ include('@Admin/helpers/confirm_modal.html.twig') }}
+{% endblock content %}

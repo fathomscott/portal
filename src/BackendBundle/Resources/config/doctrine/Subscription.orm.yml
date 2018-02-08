@@ -1,0 +1,37 @@
+BackendBundle\Entity\Subscription:
+    type: entity
+    table: subscription
+    repositoryClass: BackendBundle\Repository\SubscriptionRepository
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            generator:
+                strategy: IDENTITY
+        dueDate:
+            type: date
+            column: due_date
+        status:
+            type: integer
+        lastAttempt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+    oneToOne:
+        user:
+            targetEntity: User
+            inversedBy: subscription
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+                onDelete: cascade
+    manyToOne:
+        plan:
+            targetEntity: Plan
+            inversedBy: subscriptions
+            joinColumn:
+                name: plan_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

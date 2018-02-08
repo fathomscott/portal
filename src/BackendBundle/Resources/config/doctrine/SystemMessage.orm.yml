@@ -1,0 +1,40 @@
+BackendBundle\Entity\SystemMessage:
+    type: entity
+    table: system_message
+    repositoryClass: BackendBundle\Repository\SystemMessageRepository
+    id:
+        id:
+            type: integer
+            scale: 0
+            length: null
+            unique: false
+            nullable: false
+            precision: 0
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        message:
+            type: string
+            length: 500
+            nullable: false
+        startDate:
+            type: date
+            nullable: true
+        endDate:
+            type: date
+            nullable: true
+    manyToMany:
+        users:
+            targetEntity: BackendBundle\Entity\User
+            inversedBy: dismissedSystemMessages
+            joinTable:
+                name: dismissed_system_messages
+                joinColumns:
+                    system_message_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    user_id:
+                        referencedColumnName: id

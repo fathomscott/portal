@@ -1,0 +1,4 @@
+blank: This field must not be empty.
+numeric: You must provide a valid number.
+email_used: This email address is already in use.
+affiliate_name_used: This affiliate name is already in use.

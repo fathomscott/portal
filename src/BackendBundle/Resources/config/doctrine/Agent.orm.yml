@@ -1,0 +1,82 @@
+BackendBundle\Entity\Agent:
+    type: entity
+    table: agent
+    repositoryClass: BackendBundle\Repository\AgentRepository
+    fields:
+        legalName:
+            type: string
+            length: 100
+            nullable: true
+        address:
+            type: string
+            length: 255
+            nullable: false
+        city:
+            type: string
+            length: 64
+            nullable: false
+        zip:
+             type: integer
+             unsigned: false
+             nullable: false
+        phoneNumber:
+            type: string
+            length: 50
+            fixed: false
+            nullable: true
+            column: phone_number
+        personalEmail:
+            type: string
+            length: 100
+            unique: true
+            nullable: true
+        birthDate:
+            type: date
+            nullable: true
+        joinedDate:
+            type: date
+            nullable: false
+        socialSecurityNumber:
+            type: string
+            nullable: true
+        ein:
+            type: string
+            nullable: true
+        pastFirm:
+            type: string
+            nullable: true
+        RELExpirationDate:
+            type: date
+            nullable: true
+        insuranceExpirationDate:
+            type: date
+            nullable: true
+        isMentor:
+            type: boolean
+        isMentee:
+            type: boolean
+    oneToMany:
+        members:
+            targetEntity: BackendBundle\Entity\TeamMember
+            mappedBy: agent
+            cascade: [all]
+        agentNotes:
+            targetEntity: AgentNote
+            mappedBy: agent
+            cascade: [all]
+        agentDistricts:
+            targetEntity: BackendBundle\Entity\AgentDistrict
+            mappedBy: agent
+            orphanRemoval: remove
+            cascade: [all]
+            orderBy: { 'primaryMarket': 'DESC' }
+        documents:
+            targetEntity: BackendBundle\Entity\Document
+            mappedBy: agent
+            cascade: [all]
+    manyToOne:
+        state:
+            targetEntity: BackendBundle\Entity\State
+            joinColumn:
+                name: state_id
+                referencedColumnName: id

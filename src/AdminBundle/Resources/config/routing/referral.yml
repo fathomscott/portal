@@ -1,0 +1,7 @@
+admin_referral_index:
+    path:     /
+    defaults: { _controller: admin.referral_controller:indexAction }
+
+admin_referral_user_list:
+    path:     /{user}
+    defaults: { _controller: admin.referral_controller:referralList }

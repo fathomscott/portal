@@ -1,0 +1,30 @@
+{% extends '@Admin/layout.html.twig' %}
+
+{% form_theme form '@Admin/form_theme.html.twig' %}
+
+{% block title %}{{ 'navigation.manage'|trans }} {{ 'navigation.system_message.system_message'|trans }}{% endblock %}
+
+{% block breadcrumb %}
+    <li><a href="{{ path('admin_system_message_index') }}">{{ 'navigation.system_message.system_messages'|trans }}</a></li>
+    <li class="active">{{ 'navigation.manage'|trans }} {{ 'navigation.system_message.system_message'|trans }}</li>
+{% endblock %}
+
+{% block content %}
+   {{ form_start(form) }}
+       {% for field in form %}
+          {{ form_row(field) }}
+       {% endfor %}
+
+       {# buttons #}
+       <div class="buttons col-md-offset-3 m-t-10">
+          <button type="submit" class="btn btn-warning m-r-10">{{ 'verb.submit'|trans }}</button>
+          <a href="{{ path('admin_system_message_index') }}" class="btn btn-info">{{ 'navigation.back_to_list'|trans }}</a>
+
+          {% if not isNew %}
+              <a href="{{ path('admin_system_message_delete', {'systemMessage': systemMessage.id}) }}" class="confirm-delete btn btn-danger">{{ 'verb.delete'|trans }}</a>
+              {{ include('@Admin/helpers/confirm_modal.html.twig') }}
+          {% endif %}
+       </div>
+   {{ form_end(form) }}
+
+{% endblock content %}

@@ -1,0 +1,23 @@
+BackendBundle\Entity\SystemDefault:
+    type: entity
+    table: system_default
+    repositoryClass: BackendBundle\Repository\SystemDefaultRepository
+    id:
+        id:
+            type: integer
+            scale: 0
+            length: null
+            unique: false
+            nullable: false
+            precision: 0
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        onboardingEmail:
+            type: text
+            nullable: true
+        dunningDays:
+            type: integer

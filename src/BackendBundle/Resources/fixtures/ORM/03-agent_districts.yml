@@ -1,0 +1,25 @@
+BackendBundle\Entity\AgentDistrict:
+    #first 10 Agent are District Directors
+    AgentDistrictDirector{1..10}:
+        agent: "@Agent<current()>"
+        district: "@District<current()>"
+        districtDirector: true
+        primaryMarket: true
+
+    AgentDistrict{11..70}:
+        agent: "@Agent<numberBetween(1, 20)>"
+        district: "@District<numberBetween(11, 40)>"
+        districtDirector: false
+        primaryMarket: true
+
+    AgentDistrictSecond{21..100}:
+        agent: "@Agent<current()>"
+        district: "@District<current()>"
+        districtDirector: false
+        primaryMarket: false
+
+    AgentDistrict{101..150}:
+        agent: "@Agent<numberBetween(1, 50)>"
+        district: "@DistrictWithVariableMlsDues<current()>"
+        districtDirector: false
+        primaryMarket: false

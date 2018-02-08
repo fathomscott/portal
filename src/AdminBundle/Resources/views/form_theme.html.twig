@@ -1,0 +1,134 @@
+{%- block form_start -%}
+    {% set method = method|upper %}
+    {%- if method in ["GET", "POST"] -%}
+        {% set form_method = method %}
+    {%- else -%}
+        {% set form_method = "POST" %}
+    {%- endif -%}
+
+    {# add color admin theme classes #}
+    {% set attr = attr|merge({'class': (attr.class|default('') ~ ' form-horizontal form-bordered')|trim}) %}
+
+    <form name="{{ name }}" method="{{ form_method|lower }}"{% if action != '' %} action="{{ action }}"{% endif %}{% for attrname, attrvalue in attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}{% if multipart %} enctype="multipart/form-data"{% endif %}>
+    {%- if form_method != method -%}
+        <input type="hidden" name="_method" value="{{ method }}" />
+    {%- endif -%}
+{%- endblock form_start -%}
+
+{%- block form_row -%}
+    <div class="form-group{% if errors|length %} has-error{% endif %}">
+        {{- form_label(form) -}}
+        <div class="col-md-6 col-sm-6">
+            {{- form_errors(form) -}}
+            {{- form_widget(form) -}}
+        </div>
+    </div>
+{%- endblock form_row -%}
+
+{%- block form_errors -%}
+    {%- if errors|length > 0 -%}
+        <ul class="parsley-errors-list filled">
+            {%- for error in errors -%}
+                <li>{{ error.message }}</li>
+            {%- endfor -%}
+        </ul>
+    {%- endif -%}
+{%- endblock form_errors -%}
+
+{%- block form_label -%}
+    {% if label is not same as(false) -%}
+        {% if not compound -%}
+            {% set label_attr = label_attr|merge({'for': id}) %}
+        {%- endif -%}
+        {% if required -%}
+            {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' required')|trim}) %}
+        {%- endif -%}
+
+        {# add color admin theme classes if it's not choice option label #}
+        {% if form.parent.vars.block_prefixes.1 != 'choice' %}
+            {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' control-label col-md-3 col-sm-3')|trim}) %}
+        {% endif %}
+
+        {% if label is empty -%}
+            {%- if label_format is not empty -%}
+                {% set label = label_format|replace({
+                '%name%': name,
+                '%id%': id,
+                }) %}
+            {%- else -%}
+                {% set label = name|humanize %}
+            {%- endif -%}
+        {%- endif -%}
+        <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
+            {{ translation_domain is same as(false) ? label : label|trans({}, translation_domain) }}
+
+            {# add red star #}
+            {% if required and form.parent.vars.block_prefixes.1 != 'choice' -%}
+                <span class="text-danger">*</span>
+            {% endif %}
+        </label>
+    {%- endif -%}
+{%- endblock form_label -%}
+
+{%- block widget_attributes -%}
+    id="{{ id }}" name="{{ full_name }}"
+    {%- if disabled %} disabled="disabled"{% endif -%}
+    {%- if required %} required="required"{% endif -%}
+
+    {# add color admin theme classes #}
+    {% if form.vars.block_prefixes.1 not in ['checkbox', 'radio', 'file'] %}
+        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' form-control')|trim}) %}
+    {% endif %}
+
+    {% if form.vars.errors|length %}
+        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' parsley-error')|trim}) %}
+    {% endif %}
+
+    {%- for attrname, attrvalue in attr -%}
+        {{- " " -}}
+        {%- if attrname in ['placeholder', 'title'] -%}
+            {{- attrname }}="{{ translation_domain is same as(false) ? attrvalue : attrvalue|trans({}, translation_domain) }}"
+        {%- elseif attrvalue is same as(true) -%}
+            {{- attrname }}="{{ attrname }}"
+        {%- elseif attrvalue is not same as(false) -%}
+            {{- attrname }}="{{ attrvalue }}"
+        {%- endif -%}
+    {%- endfor -%}
+{%- endblock widget_attributes -%}
+
+{%- block choice_widget_expanded -%}
+    <div {{ block('widget_container_attributes') }}>
+        {%- for child in form %}
+            <div class="choice-option">
+                {{- form_widget(child) -}}
+                {{- form_label(child, null, {translation_domain: choice_translation_domain}) -}}
+            </div>
+        {% endfor -%}
+    </div>
+{%- endblock choice_widget_expanded -%}
+
+{%- block submit_widget -%}
+    {# add color admin theme classes #}
+    {% set attr = attr|merge({'class': (attr.class|default('') ~ ' btn btn-info col-md-offset-3 ')|trim}) %}
+
+    {%- set type = type|default('submit') -%}
+    {{ block('button_widget') }}
+{%- endblock submit_widget -%}
+
+{%- block agent_district_widget -%}
+    {% set entity = form.vars.value %}
+    <div class="agent-district-widget" data-district-id="{{ entity.district.id|default('') }}">
+        <a title="Remove" class="fa fa-times text-danger remove-agent-district" aria-hidden="true"></a>
+        <p>
+            {% if entity %}<strong>{{ entity.district.state.code }} - {{ entity.district.name }}</strong>{% endif %}
+        </p>
+	<small>Primary Market</small>
+        {{ form_widget(form.primaryMarket, {'attr': {'class': 'primary-market'}}) }}
+	<br>
+        <small>District Director</small>
+        {{ form_widget(form.districtDirector, {'attr': {'class': 'district-director'}}) }}
+
+        {{ form_widget(form.district, {'attr': {'class': 'district-id'}}) }}
+        {{ form_rest(form) }}
+    </div>
+{%- endblock agent_district_widget -%}

@@ -1,0 +1,28 @@
+{% extends '@Admin/layout.html.twig' %}
+
+{% form_theme form '@Admin/form_theme.html.twig' %}
+
+{% block title %}{{ 'navigation.manage'|trans }} {{ 'labels.agent_note'|trans }}{% endblock %}
+
+{% block breadcrumb %}
+    <li><a href="{{ path('admin_agent_note_index', {'agent': agent.id}) }}">{{ 'labels.agent_notes'|trans }}</a></li>
+    <li class="active">{{ 'navigation.manage'|trans }} {{ 'labels.agent_note'|trans }}</li>
+{% endblock %}
+
+{% block content %}
+    {% if not isNew %}
+        {{ include('@Admin/Agent/helpers/menu.html.twig') }}
+    {% endif %}
+    {{ form_start(form) }}
+        {% for field in form %}
+            {{ form_row(field) }}
+        {% endfor %}
+
+        {# buttons #}
+        <div class="buttons col-md-offset-3 m-t-10">
+            <button type="submit" class="btn btn-warning m-r-10">{{ 'verb.submit'|trans }}</button>
+            <a href="{{ path('admin_agent_note_index', {'agent': agent.id}) }}" class="btn btn-info">{{ 'navigation.back_to_list'|trans }}</a>
+        </div>
+    {{ form_end(form) }}
+
+{% endblock content %}

@@ -1,0 +1,15 @@
+admin_staff_index:
+    path:     /
+    defaults: { _controller: admin.staff_controller:indexAction }
+
+admin_staff_add:
+    path:     /add
+    defaults: { _controller: admin.staff_controller:manageAction }
+
+admin_staff_edit:
+    path:     /{staff}/edit
+    defaults: { _controller: admin.staff_controller:manageAction }
+
+admin_staff_delete:
+    path:     /{staff}/delete
+    defaults: { _controller: admin.staff_controller:deleteAction }

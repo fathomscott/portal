@@ -1,0 +1,138 @@
+services:
+    backend.user_repository:
+        class: BackendBundle\Repository\UserRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - BackendBundle:User
+
+    backend.agent_repository:
+        class: BackendBundle\Repository\AgentRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - BackendBundle:Agent
+
+    backend.email_repository:
+        class: BackendBundle\Repository\EmailRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - BackendBundle:Email
+
+    backend.state_repository:
+        class: BackendBundle\Repository\StateRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - BackendBundle:State
+
+    backend.team_repository:
+        class: BackendBundle\Repository\TeamRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - BackendBundle:Team
+
+    backend.team_member_repository:
+        class: BackendBundle\Repository\TeamMemberRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - BackendBundle:TeamMember
+
+    backend.district_repository:
+        class: BackendBundle\Repository\DistrictRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - BackendBundle:District
+
+    backend.agent_note_repository:
+        class: BackendBundle\Repository\AgentNoteRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - BackendBundle:AgentNote
+
+    backend.plan_repository:
+        class: BackendBundle\Repository\PlanRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - BackendBundle:Plan
+
+    backend.super_admin_repository:
+        class: BackendBundle\Repository\SuperAdminRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - BackendBundle:SuperAdmin
+
+    backend.admin_repository:
+        class: BackendBundle\Repository\AdminRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - BackendBundle:Admin
+
+    backend.subsciption_repository:
+        class: BackendBundle\Repository\SubscriptionRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - BackendBundle:Subscription
+
+    backend.payment_method_repository:
+        class: BackendBundle\Repository\PaymentMethodRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - BackendBundle:PaymentMethod
+
+    backend.credit_card_repository:
+        class: BackendBundle\Repository\CreditCardRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - BackendBundle:CreditCard
+
+    backend.transaction_repository:
+        class: BackendBundle\Repository\TransactionRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - BackendBundle:Transaction
+
+    backend.referral_repository:
+        class: BackendBundle\Repository\ReferralRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - BackendBundle:Referral
+
+    backend.license_category_repository:
+        class: BackendBundle\Repository\LicenseCategoryRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - BackendBundle:LicenseCategory
+
+    backend.agent_district_repository:
+        class: BackendBundle\Repository\AgentDistrictRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - BackendBundle:AgentDistrict
+
+    backend.billing_option_repository:
+        class: BackendBundle\Repository\BillingOptionRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - BackendBundle:BillingOption
+
+    backend.system_message_repository:
+        class: BackendBundle\Repository\SystemMessageRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - BackendBundle:SystemMessage
+
+    backend.system_default_repository:
+        class: BackendBundle\Repository\SystemDefaultRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - BackendBundle:SystemDefault
+
+    backend.document_option_repository:
+        class: BackendBundle\Repository\DocumentOptionRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - BackendBundle:DocumentOption
+
+    backend.document_repository:
+        class: BackendBundle\Repository\DocumentRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - BackendBundle:Document

@@ -1,0 +1,32 @@
+BackendBundle\Entity\DocumentOption:
+    type: entity
+    table: document_option
+    repositoryClass: BackendBundle\Repository\DocumentOptionRepository
+    id:
+        id:
+            type: integer
+            scale: 0
+            length: null
+            unique: false
+            nullable: false
+            precision: 0
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            length: 255
+            nullable: false
+            unique: true
+        required:
+            type: boolean
+        expirationDateRequired:
+            type: boolean
+            column: exporation_date_required
+    oneToMany:
+        documents:
+            targetEntity: BackendBundle\Entity\Document
+            mappedBy: documentOption

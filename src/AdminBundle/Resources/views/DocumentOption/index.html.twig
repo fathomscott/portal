@@ -1,0 +1,46 @@
+{% extends '@Admin/layout.html.twig' %}
+
+{% block title %}{{ 'navigation.document_option.document_options'|trans }}{% endblock %}
+
+{% block breadcrumb %}
+    <li class="active">{{ 'navigation.document_option.document_options'|trans }}</li>
+{% endblock %}
+
+{% block content %}
+    <a class="pull-right btn btn-primary m-b-10" href="{{ path('admin_document_option_add') }}">+ {{ 'verb.add'|trans }}</a>
+    <table id="data-table" class="table table-striped table-bordered dataTable no-footer dtr-inline list-table">
+        <thead>
+            <tr>
+                <th class="{{ 'a.id'|sort_class }}">{{ knp_pagination_sortable(documentOptions, 'labels.id'|trans(), 'a.id') }}</th>
+                <th class="{{ 'a.name'|sort_class }}">{{ knp_pagination_sortable(documentOptions, 'labels.name'|trans(), 'a.name') }}</th>
+                <th class="{{ 'a.required'|sort_class }}">{{ knp_pagination_sortable(documentOptions, 'labels.required'|trans(), 'a.required') }}</th>
+                <th class="{{ 'a.expirationDateRequired'|sort_class }}">{{ knp_pagination_sortable(documentOptions, 'labels.expiration_date_required'|trans(), 'a.expirationDateRequired') }}</th>
+                <th>{{ 'labels.actions'|trans }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for documentOption in documentOptions %}
+                <tr>
+                    <td>{{ documentOption.id }}</td>
+                    <td>{{ documentOption.name }}</td>
+                    <td>{{ documentOption.required ? 'labels.yes'|trans : 'labels.no'|trans }}</td>
+                    <td>{{ documentOption.expirationDateRequired ? 'labels.yes'|trans : 'labels.no'|trans }}</td>
+                    <td>
+                        <div class="btn-group">
+                            <a href="javascript:;" data-toggle="dropdown" class="btn btn-sm btn-info dropdown-toggle" aria-expanded="false">
+                                {{ 'labels.actions'|trans }} <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ path('admin_document_option_edit', {'documentOption' : documentOption.id}) }}">{{ 'verb.edit'|trans }}</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="col-md-5 media-middle"><p><strong>{{ 'labels.total_results'| trans }}:</strong> {{ total }}</p></div>
+    <div class="col-md-7 text-right">{{ knp_pagination_render(documentOptions) }}</div>
+
+    {{ include('@Admin/helpers/confirm_modal.html.twig') }}
+{% endblock content %}

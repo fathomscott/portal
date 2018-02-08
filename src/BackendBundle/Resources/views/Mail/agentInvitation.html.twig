@@ -1,0 +1,27 @@
+{% extends "BackendBundle:Mail:base.html.twig" %}
+{% block subject %}
+Welcome to Fantom Realty tool
+{% endblock %}
+
+{% block body_text %}
+{% autoescape false %}
+{{ firstName }},
+Welcome to Fantom Realty tool, please follow link bellow to reset your password and get access to our tool.
+
+{{ url }}
+
+Thank you,
+{{ signature }}
+{% endautoescape %}
+{% endblock %}
+
+{% block html_message %}
+{{ firstName }},
+<br />
+Welcome to Fantom Realty tool, please follow link bellow to reset your password and get access to our tool.
+<br/><br/>
+{{ url }}
+Thank you,
+<br />
+{{ signature }}
+{% endblock %}

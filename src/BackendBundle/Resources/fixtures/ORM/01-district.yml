@@ -1,0 +1,64 @@
+BackendBundle\Entity\District:
+    District{1..10}:
+        name: <city()>
+        MLSDuesRequired: true
+        MLSDuesType: 0
+        MLSFee: <numberBetween(0, 75)>
+        state: "@CA"
+    District{11..30}:
+        name: <city()>
+        state: "@TX"
+    District{31..40}:
+        name: <city()>
+        MLSDuesRequired: true
+        MLSDuesType: 0
+        MLSFee: <numberBetween(0, 75)>
+        state: "@NY"
+    District{41..57}:
+        name: <city()>
+        state: "@GA"
+    District{58..64}:
+        name: <city()>
+        MLSDuesRequired: true
+        MLSDuesType: 0
+        MLSFee: <numberBetween(0, 75)>
+        state: "@CO"
+    District{65..82}:
+        name: <city()>
+        state: "@CT"
+    District{83..100}:
+        name: <city()>
+        MLSDuesRequired: true
+        MLSDuesType: 0
+        MLSFee: <numberBetween(0, 75)>
+        state: "@DE"
+    DistrictWithVariableMlsDues{101..110}:
+        name: <city()>
+        MLSDuesRequired: true
+        MLSDuesType: 1
+        MLSFee: 0
+        state: "@CA"
+    DistrictWithVariableMlsDues{111..120}:
+        name: <city()>
+        MLSDuesRequired: true
+        MLSDuesType: 1
+        MLSFee: 0
+        state: "@TX"
+    DistrictWithVariableMlsDues{121..130}:
+        name: <city()>
+        MLSDuesRequired: true
+        MLSDuesType: 1
+        MLSFee: 0
+        state: "@NY"
+    DistrictWithVariableMlsDues{131..140}:
+        name: <city()>
+        MLSDuesRequired: true
+        MLSDuesType: 1
+        MLSFee: 0
+        state: "@GA"
+    DistrictWithVariableMlsDues{141..150}:
+        name: <city()>
+        MLSDuesRequired: true
+        MLSDuesType: 1
+        MLSFee: 0
+        state: "@CO"

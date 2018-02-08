@@ -1,0 +1,3 @@
+BackendBundle\Entity\SystemMessage:
+    SystemMessage{1..8}:
+        message: <paragraph(500)>

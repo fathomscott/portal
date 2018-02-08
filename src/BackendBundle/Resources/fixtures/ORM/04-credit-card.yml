@@ -1,0 +1,5 @@
+BackendBundle\Entity\CreditCard:
+    AgentCreditCard{1..100}:
+        user: '@Agent<current()>'
+        cardToken: <(md5(microtime(1)))>
+        lastFour: <numberBetween(1111, 9898)>

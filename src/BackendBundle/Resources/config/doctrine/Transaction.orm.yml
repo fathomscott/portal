@@ -1,0 +1,66 @@
+BackendBundle\Entity\Transaction:
+    type: entity
+    table: transaction
+    repositoryClass: BackendBundle\Repository\TransactionRepository
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        created:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        amount:
+            type: decimal
+            scale: 2
+            length: null
+            unique: false
+            nullable: false
+            precision: 0
+            column: amount
+        status:
+            type: integer
+            nullable: false
+        notes:
+            type: text
+            nullable: true
+            column: notes
+        vendorId:
+            type: text
+            nullable: true
+    manyToOne:
+        user:
+            targetEntity: User
+            inversedBy: transactions
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+                onDelete: cascade
+        paymentMethod:
+            targetEntity: PaymentMethod
+            inversedBy: transactions
+            joinColumn:
+                name: payment_method_id
+                referencedColumnName: id
+        district:
+            targetEntity: District
+            inversedBy: transactions
+            joinColumn:
+                name: district_id
+                referencedColumnName: id
+                onDelete: cascade
+                nullable: true
+        billingOption:
+            targetEntity: BackendBundle\Entity\BillingOption
+            inversedBy: transactions
+            joinColumn:
+                name: billing_option_id
+                referencedColumnName: id
+                onDelete: SET NULL
+                nullable: true
+    lifecycleCallbacks: {  }

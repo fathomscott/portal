@@ -1,0 +1,36 @@
+BackendBundle\Entity\TeamMember:
+    type: entity
+    table: team_member
+    repositoryClass: BackendBundle\Repository\TeamMemberRepository
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            generator:
+                strategy: IDENTITY
+        teamLeader:
+            column: is_team_leader
+            type: boolean
+        token:
+            type: text
+            nullable: true
+        invitationEmail:
+            type: text
+            nullable: true
+    manyToOne:
+        team:
+            targetEntity: BackendBundle\Entity\Team
+            inversedBy: members
+            joinColumn:
+                name: team_id
+                referencedColumnName: id
+                onDelete: cascade
+        agent:
+            targetEntity: BackendBundle\Entity\Agent
+            inversedBy: members
+            joinColumn:
+                name: agent_id
+                nullable: true
+                referencedColumnName: id
+                onDelete: cascade

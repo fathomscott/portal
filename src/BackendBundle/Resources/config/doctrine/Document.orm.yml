@@ -1,0 +1,50 @@
+BackendBundle\Entity\Document:
+    type: entity
+    table: document
+    repositoryClass: BackendBundle\Repository\DocumentRepository
+    id:
+        id:
+            type: integer
+            scale: 0
+            length: null
+            unique: false
+            nullable: false
+            precision: 0
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        status:
+            type: integer
+            length: 1
+        uploadedDate:
+            type: datetime
+            nullable: true
+        expirationDate:
+            type: date
+            nullable: true
+        documentName:
+            type: string
+            length: 255
+            nullable: true
+        description:
+            type: string
+            length: 128
+            nullable: true
+    manyToOne:
+        documentOption:
+            targetEntity: BackendBundle\Entity\DocumentOption
+            inversedBy: documents
+            joinColumn:
+                name: document_option_id
+                referencedColumnName: id
+                onDelete: SET NULL
+        agent:
+            targetEntity: BackendBundle\Entity\Agent
+            inversedBy: documents
+            joinColumn:
+                name: agent_id
+                referencedColumnName: id
+                onDelete: cascade

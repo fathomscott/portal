@@ -1,0 +1,15 @@
+admin_license_category_index:
+    path:     /
+    defaults: { _controller: admin.license_category_controller:indexAction }
+
+admin_license_category_add:
+    path:     /add
+    defaults: { _controller: admin.license_category_controller:manageAction }
+
+admin_license_category_edit:
+    path:     /{licenseCategory}/edit
+    defaults: { _controller: admin.license_category_controller:manageAction }
+
+admin_license_category_delete:
+    path:     /{licenseCategory}/delete
+    defaults: { _controller: admin.license_category_controller:deleteAction }

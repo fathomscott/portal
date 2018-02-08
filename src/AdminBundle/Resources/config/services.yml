@@ -1,0 +1,127 @@
+services:
+    #menus
+    admin.menu_builder:
+        class: AdminBundle\Menu\MenuBuilder
+        arguments: ["@knp_menu.factory", "@security.authorization_checker", "@security.token_storage"]
+
+    admin.sidebar.menu:
+        class: Knp\Menu\MenuItem
+        factory: ['@admin.menu_builder', createAdminSidebarMenu]
+        arguments: ["@request_stack"]
+        tags:
+            - { name: knp_menu.menu, alias: admin_sidebar }
+
+    admin.profile.menu:
+        class: Knp\Menu\MenuItem
+        factory: ['@admin.menu_builder', createProfileMenu]
+        arguments: ["@request_stack"]
+        tags:
+            - { name: knp_menu.menu, alias: profile_menu }
+
+
+    #twig extensions
+    admin.twig_extension:
+        class: AdminBundle\Twig\AdminExtension
+        arguments:
+            - "@request_stack"
+            - "@backend.subscription_manager"
+        public: false
+        tags:
+            - { name: twig.extension }
+
+
+    #listeners
+    admin.listener.team_member_invitation:
+        class: AdminBundle\EventListener\InviteTeamMemberListener
+        calls:
+            - [setMailer, ['@mailer']]
+            - [setTwig, ['@twig']]
+        arguments: ['@service_container']
+        tags:
+            - { name: kernel.event_listener, event: admin_team_member_invitation, method: onInviteTeamMember }
+
+    admin.listener.admin_invitation_email:
+        class: AdminBundle\EventListener\AgentInvitationListener
+        calls:
+            - [setMailer, ['@mailer']]
+            - [setTwig, ['@twig']]
+        arguments: ['@service_container']
+        tags:
+            - { name: kernel.event_listener, event: admin_agent_invitation_sent, method: onInvitationSent }
+
+    kernel.listener.global_filter.listener:
+        class: AdminBundle\EventListener\GlobalFilterListener
+        arguments:
+            - "@session"
+            - "@security.authorization_checker"
+            - "@backend.district_manager"
+            - "@backend.state_manager"
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+
+    #forms
+    admin.agent_district_type:
+        class: AdminBundle\Form\Type\AgentDistrictType
+        calls:
+            - [setDistrictManager, ['@backend.district_manager']]
+            - [setAgentDistrictManager, ['@backend.agent_district_manager']]
+        tags:
+            - { name: form.type }
+
+    admin.agent_team_type:
+        class: AdminBundle\Form\Type\TeamType
+        arguments: ['@security.token_storage']
+
+        tags:
+            - { name: form.type }
+
+    admin.global_filter_type:
+        class: AdminBundle\Form\Type\Filter\GlobalFilterType
+        arguments: ['@admin.global_filter', '@backend.district_repository']
+
+        tags:
+            - { name: form.type }
+
+    #voters
+    admin.agent_voter:
+        class: AdminBundle\Security\AgentVoter
+        tags:
+            - { name: security.voter }
+        # small performance boost
+        public: false
+
+    admin.agent_note_voter:
+        class: AdminBundle\Security\AgentNoteVoter
+        tags:
+            - { name: security.voter }
+        # small performance boost
+        public: false
+
+    admin.team_voter:
+        class: AdminBundle\Security\TeamVoter
+        tags:
+            - { name: security.voter }
+        # small performance boost
+        public: false
+
+    #other
+    admin.global_filter:
+        class: AdminBundle\Utils\GlobalFilter
+        arguments:
+            - "@security.token_storage"
+            - "@session"
+
+    admin.converge_api:
+        class: AdminBundle\Utils\ConvergeApi
+        arguments:
+            - "%converge_merchant_id%"
+            - "%converge_user_id%"
+            - "%converge_is_live%"
+
+    admin.billing:
+        class: AdminBundle\Utils\Billing
+        arguments:
+            - "@admin.converge_api"
+            - "@event_dispatcher"
+            - "@backend.transaction_manager"
+            - "@backend.subscription_manager"

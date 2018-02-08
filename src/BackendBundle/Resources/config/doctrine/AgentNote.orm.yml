@@ -1,0 +1,43 @@
+BackendBundle\Entity\AgentNote:
+    type: entity
+    table: agent_note
+    repositoryClass: BackendBundle\Repository\AgentNoteRepository
+    id:
+        id:
+            type: integer
+            scale: 0
+            length: null
+            unique: false
+            nullable: false
+            precision: 0
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        created:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        note:
+            type: text
+            fixed: false
+        public:
+            type: boolean
+            nullable: false
+    manyToOne:
+        agent:
+            targetEntity: Agent
+            inversedBy: agentNotes
+            joinColumn:
+                referencedColumnName: id
+                name: agent_id
+        author:
+            targetEntity: User
+            joinColumn:
+                referencedColumnName: id
+                name: author_id
+                onDelete: cascade
+    lifecycleCallbacks: {  }

@@ -1,0 +1,113 @@
+{% extends "@Admin/layout.html.twig" %}
+
+{% block title %}{{ 'navigation.dashboard'|trans }}{% endblock %}
+
+{% block breadcrumb %}
+    <li class="active">{{ 'navigation.dashboard'|trans }}</li>
+{% endblock %}
+
+{% block content %}
+    {% for systemMessage in systemMessages %}
+        <div class="alert alert-danger alert-top" role="alert">
+            <button type="button" class="dismiss-system-message close" data-system-message-id="{{ systemMessage.id }}">
+                <span aria-hidden="true">&times;</span>
+                <span class="sr-only">Close</span>
+            </button>
+            {{ systemMessage.message }}
+        </div>
+    {% endfor %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6">
+	    <div><h2>Corporate Contact Information</h2></div>
+            <div><strong>Corporate Address:</strong></div>
+            <div style="margin:0px 20px 20px 20px;">
+		24800 Chrisanta Dr., Suite 140<br>
+		Mission Viejo, California 92691
+	    </div>
+            <div><strong>Agent Services</strong></div>
+            <div style="margin:0px 20px 20px 20px;">
+		<strong>Phone:</strong> <a href="tel:877-661-1977">877-661-1977</a> Option 1<br>
+            	<strong>Email:</strong> <a href="mailto:agentservices@fathomrealty.com">agentservices@fathomrealty.com</a>
+	   </div>
+            <div><strong>Onboarding</strong></div>
+            <div style="margin:0px 20px 20px 20px;">
+		<strong>Phone:</strong> <a href="tel:877-661-1977">877-661-1977</a> Option 2<br>
+            	<strong>Email:</strong> <a href="mailto:onboarding@fathomrealty.com">onboarding@fathomrealty.com</a>
+	   </div>
+            <div><strong>Accounting</strong></div>
+            <div style="margin:0px 20px 20px 20px;">
+		<strong>Phone:</strong> <a href="tel:877-661-1977">877-661-1977</a> Option 3<br>
+            	<strong>Email:</strong> <a href="mailto:accounting@fathomrealty.com">accounting@fathomrealty.com</a>
+	   </div>
+            <div><strong>Compliance</strong></div>
+            <div style="margin:0px 20px 20px 20px;">
+		<strong>Phone:</strong> <a href="tel:877-661-1977">877-661-1977</a> Option 4<br>
+            	<strong>Email:</strong> <a href="mailto:compliance@fathomrealty.com">compliance@fathomrealty.com</a>
+	   </div>
+        </div>
+        <div class="col-xs-6">
+		<div><h2>Useful Links</strong></h2>
+		<div class="third-party-links">
+			<a href="https://fathom.backagent.net/start/" target="_blank">
+				<img src="/images/links/backagent.png">Transaction Management / BackAgent
+			</a>
+		</div>
+		<div class="third-party-links">
+			<a href="https://www.fathomwiki.com/#" target="_blank">
+				<img src="/images/links/wiki.png">Fathom Wiki - Knowledge Base/All Things Fathom
+			</a>
+		</div>
+		<div class="third-party-links">
+			<a href="http://www.mysinglepropertywebsites.com/session/new" target="_blank">
+				<img src="/images/links/property-website.png">My Single Property Website
+			</a>
+		</div>
+		<div class="third-party-links">
+			<a href="http://www.fathomrealty.com/backend/login/" target="_blank">
+				<img src="/images/fathom-20x20.png">Agent CRM &amp;Website REW
+			</a>
+		</div>
+		<div class="third-party-links">
+			<a href="http://mail.fathomrealty.com/index.php" target="_blank">
+				<img src="/images/links/mail-fantom.png">Email/FathomWebmail
+			</a>
+		</div>
+		<div class="third-party-links">
+			<a href="https://eendorsements.com/login/" target="_blank">
+				<img src="/images/links/eendorsement.png">eEndorsements
+			</a>
+		</div>
+		<div class="third-party-links">
+			<a href="http://www.realestatetrainingbydavidknox.com/login" target="_blank">
+				<img src="/images/links/real-estate-training.png">Video Training On Demand /David Knox
+			</a>
+		</div>
+	</div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block javascript %}
+    <script type="text/javascript">
+        $(function () {
+            $('.dismiss-system-message').on('click', function () {
+                var systemMessageId = $(this).data('system-message-id');
+                var $messageBox = $(this).closest('.alert');
+                $messageBox.hide();
+                $.ajax({
+                    type: 'POST',
+                    url: Routing.generate('admin_dismiss_message', {'systemMessage' : systemMessageId}),
+                    complete: function (data) {
+                        if (data.responseText == 'success') {
+                            $messageBox.remove();
+                        } else {
+                            $messageBox.show();
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+{% endblock %}

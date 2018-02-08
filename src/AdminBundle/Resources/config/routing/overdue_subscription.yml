@@ -1,0 +1,3 @@
+admin_overdue_subscription:
+    path:     /
+    defaults: { _controller: admin.overdue_subsciption_controller:indexAction }

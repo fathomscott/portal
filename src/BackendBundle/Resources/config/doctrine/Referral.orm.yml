@@ -1,0 +1,38 @@
+BackendBundle\Entity\Referral:
+    type: entity
+    table: referral
+    repositoryClass: BackendBundle\Repository\ReferralRepository
+    id:
+        id:
+            type: integer
+            scale: 0
+            length: null
+            unique: false
+            nullable: false
+            precision: 0
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        created:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+    manyToOne:
+        referredUser:
+            targetEntity: User
+            inversedBy: referredReferrals
+            joinColumn:
+                name: referred_user_id
+                referencedColumnName: id
+                onDelete: cascade
+        referringUser:
+            targetEntity: User
+            inversedBy: referringReferrals
+            joinColumn:
+                name: referring_user_id
+                referencedColumnName: id
+                onDelete: cascade

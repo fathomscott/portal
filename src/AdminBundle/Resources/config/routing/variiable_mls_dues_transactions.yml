@@ -1,0 +1,15 @@
+admin_variable_mls_dues_transaction_index:
+    path:     /
+    defaults: { _controller: admin.variable_mls_dues_transaction_controller:indexAction }
+
+admin_variable_mls_dues_transaction_filter:
+    path:     /filter
+    defaults: { _controller: admin.variable_mls_dues_transaction_controller:filterAction }
+
+admin_variable_mls_dues_transaction_reset:
+    path:     /reset
+    defaults: { _controller: admin.variable_mls_dues_transaction_controller:resetAction }
+
+admin_variable_mls_dues_transaction_charge:
+    path:     /charge/{transaction}
+    defaults: { _controller: admin.variable_mls_dues_transaction_controller:chargeAction }

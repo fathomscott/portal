@@ -1,0 +1,7 @@
+BackendBundle\Entity\Plan:
+    Plan{1..8}:
+        name: <text(25)>
+        public: <numberBetween(0, 1)>
+        status: <numberBetween(0, 1)>
+        monthlyPrice: <numberBetween(25, 75)>
+        annualPrice: <($monthlyPrice * 12 - 100)>

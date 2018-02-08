@@ -1,0 +1,15 @@
+admin_billing_option_index:
+    path:     /
+    defaults: { _controller: admin.billing_option_controller:indexAction }
+
+admin_billing_option_add:
+    path:     /add
+    defaults: { _controller: admin.billing_option_controller:manageAction }
+
+admin_billing_option_edit:
+    path:     /{billingOption}/edit
+    defaults: { _controller: admin.billing_option_controller:manageAction }
+
+admin_billing_option_delete:
+    path:     /{billingOption}/delete
+    defaults: { _controller: admin.billing_option_controller:deleteAction }

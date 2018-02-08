@@ -1,0 +1,79 @@
+BackendBundle\Entity\DocumentOption:
+    #REQUIRED DOCUMENT OPTIONS
+    AgentLicense:
+        name: Agent License
+        required: true
+        expirationDateRequired: true
+    InsuranceDeclarationPage:
+        name: Insurance Declaration Page
+        required: true
+        expirationDateRequired: true
+    AgentAgreement:
+        name: Agent Agreement
+        required: true
+        expirationDateRequired: false
+    ScheduleA:
+        name: Schedule A
+        required: true
+        expirationDateRequired: false
+    PolicyManual:
+        name: Policy Manual
+        required: true
+        expirationDateRequired: false
+    W9:
+        name: W9
+        required: true
+        expirationDateRequired: false
+    OnBoardingWorkSheet:
+        name: On-Boarding Work Sheet
+        required: true
+        expirationDateRequired: false
+    #OPTIONAL DOCUMENT OPTIONS
+    MLSBillingForm:
+        name: MLS Billing Form
+        required: false
+        expirationDateRequired: false
+    TeamLeaderAgreement:
+        name: Team Leader Agreement
+        required: false
+        expirationDateRequired: false
+    TeamMemberAgreement:
+        name: Team Member Agreement
+        required: false
+        expirationDateRequired: false
+    SecondaryMarketAffiliationForm:
+        name: Secondary Market Affiliation Form
+        required: false
+        expirationDateRequired: false
+    BusinessEntityW9:
+        name: Business Entity W9
+        required: false
+        expirationDateRequired: false
+    BusinessEntityFirmLicenseorArticlesofIncorporation:
+        name: Business Entity Firm License or Articles of Incorporation
+        required: false
+        expirationDateRequired: false
+    Other:
+        name: Other
+        required: false
+        expirationDateRequired: false
+    CreditCard:
+	name: Credit Card
+	required: false
+	expirationDAteRequied: false
+    HometownHeroes:
+	name: Hometown Heroes
+	required: false
+	expirationDAteRequied: false
+    DirectDeposit:
+	name: Direct Deposit
+	required: false
+	expirationDAteRequied: false
+    LetterOfIntent:
+	name: Letter of Intent 
+	required: false
+	expirationDAteRequied: false
+    ChangeRequest:
+	name: Change Request
+	required: false
+	expirationDAteRequied: false

@@ -1,0 +1,11 @@
+admin_agent_transaction_index:
+    path:     /
+    defaults: { _controller: admin.agent_transaction_controller:indexAction }
+
+admin_agent_transaction_filter:
+    path:     /filter
+    defaults: { _controller: admin.agent_transaction_controller:filterAction }
+
+admin_agent_transaction_reset:
+    path:     /reset
+    defaults: { _controller: admin.agent_transaction_controller:resetAction }

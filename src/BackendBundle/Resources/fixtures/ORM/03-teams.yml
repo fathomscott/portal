@@ -1,0 +1,4 @@
+BackendBundle\Entity\Team:
+    Team{1..25}:
+        title: Team <current()>
+        district: "@District<numberBetween(1, 97)>"

@@ -1,0 +1,75 @@
+{% extends "BackendBundle:Mail:base.html.twig" %}
+{% block subject %}
+Report of MLS Dues district payments.
+{% endblock %}
+
+{% block body_text %}
+{% autoescape false %}
+{% if variableMLSDuesTransactions|length %}
+    List of pending transactions for Variable MLS dues. They need to be paid manual.
+    {{ url('admin_variable_mls_dues_transaction_index') }}
+
+        District | Agent
+        {% for transaction in variableMLSDuesTransactions %}
+        {{ transaction.district.name }} | {{ transaction.user.fullName }}
+        {% endfor %}
+{% endif %}
+
+List of transactions for Fixed MLS dues.
+
+    District | Agent | Amount | Status
+    {% for transaction in fixedMLSDuesTransactions %}
+    {{ transaction.district.name }} | {{ transaction.user.fullName }} | {{ transaction.amount }} | {{ transaction.statusName|trans }}
+    {% endfor %}
+
+Thank you,
+{{ signature }}
+{% endautoescape %}
+{% endblock %}
+
+{% block html_message %}
+{% if variableMLSDuesTransactions|length %}
+    <p>List of pending transactions for Variable MLS dues. They need to be paid manual.</p>
+    <a href="{{ url('admin_variable_mls_dues_transaction_index') }}">{{ url('admin_variable_mls_dues_transaction_index') }}</a>
+    <table>
+        <thead>
+            <tr>
+                <td width="200">District</td><td width="200">User</td>
+            </tr>
+        </thead>
+        <tbody>
+        {% for transaction in variableMLSDuesTransactions %}
+            <tr>
+                <td>{{ transaction.district.name }}</td>
+                <td>{{ transaction.user.fullName }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <br/>
+    <br/>
+{% endif %}
+<p>List of transactions for Fixed MLS dues.</p>
+<table>
+    <thead>
+        <tr>
+            <td width="150">District</td>
+            <td width="150">User</td>
+            <td width="150">Amount</td>
+            <td width="150">Status</td>
+        </tr>
+    </thead>
+    <tbody>
+    {% for transaction in fixedMLSDuesTransactions %}
+        <tr>
+            <td>{{ transaction.district.name }}</td>
+            <td>{{ transaction.user.fullName }}</td>
+            <td>{{ transaction.amount }}</td>
+            <td>{{ transaction.statusName|trans }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<p>Thank you,<br/>
+{{ signature }}</p>
+{% endblock %}

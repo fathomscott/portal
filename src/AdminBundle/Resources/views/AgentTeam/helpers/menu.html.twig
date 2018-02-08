@@ -1,0 +1,8 @@
+<div class="m-b-15">
+    <a class="btn btn-primary" href="{{ path('admin_agent_team_edit', {'team' : team.id}) }}">
+        {{ 'navigation.manage'|trans }} {{ 'navigation.team.team'|trans }}
+    </a>
+    <a class="btn btn-primary" href="{{ path('admin_agent_team_member_index', {'team' : team.id}) }}">
+        {{ 'navigation.manage'|trans }} {{ 'navigation.team_member.members'|trans }}
+    </a>
+</div>

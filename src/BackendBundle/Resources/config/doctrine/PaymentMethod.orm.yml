@@ -1,0 +1,33 @@
+BackendBundle\Entity\PaymentMethod:
+    type:  entity
+    table: payment_method
+    repositoryClass: BackendBundle\Repository\PaymentMethodRepository
+    inheritanceType: JOINED
+    discriminatorColumn:
+        name: discr
+        type: string
+        length: 255
+    discriminatorMap:
+        paymentMethod: PaymentMethod
+        creditCard: CreditCard
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        user:
+            targetEntity: User
+            inversedBy: paymentMethods
+            joinColumn:
+                referencedColumnName: id
+                name: user_id
+                onDelete: SET NULL
+    oneToMany:
+        transactions:
+            targetEntity: Transaction
+            mappedBy: paymentMethod
+            onDelete: SET NULL

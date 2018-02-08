@@ -1,0 +1,5 @@
+BackendBundle\Entity\Admin:
+    type: entity
+    table: admin
+    repositoryClass: BackendBundle\Repository\AdminRepository
+    fields:

@@ -1,0 +1,236 @@
+services:
+    admin.agent_controller:
+        class: AdminBundle\Controller\AgentController
+        arguments:
+            - "@backend.agent_manager"
+            - "@backend.subscription_manager"
+            - "@backend.transaction_manager"
+            - "@backend.credit_card_manager"
+            - "@backend.user_manager"
+            - "@backend.agent_district_manager"
+            - "@backend.document_option_manager"
+            - "@admin.global_filter"
+            - "@admin.converge_api"
+        calls:
+            - [setContainer, ['@service_container']]
+
+    admin.email_controller:
+        class: AdminBundle\Controller\EmailController
+        arguments:
+            - "@backend.email_manager"
+        calls:
+            - [setContainer, ['@service_container']]
+
+    admin.state_controller:
+        class: AdminBundle\Controller\StateController
+        arguments:
+            - "@backend.state_manager"
+        calls:
+            - [setContainer, ['@service_container']]
+
+    admin.team_controller:
+        class: AdminBundle\Controller\TeamController
+        arguments:
+            - "@backend.team_manager"
+            - "@admin.global_filter"
+        calls:
+            - [setContainer, ['@service_container']]
+
+    admin.agent_team_controller:
+        class: AdminBundle\Controller\AgentTeamController
+        arguments:
+            - "@backend.team_manager"
+        calls:
+            - [setContainer, ['@service_container']]
+
+    admin.agent_team_member_controller:
+        class: AdminBundle\Controller\AgentTeamMemberController
+        arguments:
+            - "@backend.team_member_manager"
+            - "@backend.agent_manager"
+        calls:
+            - [setContainer, ['@service_container']]
+
+    admin.agent_profile_controller:
+        class: AdminBundle\Controller\AgentProfileController
+        arguments:
+            - "@backend.agent_manager"
+            - "@backend.subscription_manager"
+            - "@backend.plan_manager"
+        calls:
+            - [setContainer, ['@service_container']]
+
+    admin.district_controller:
+        class: AdminBundle\Controller\DistrictController
+        arguments:
+            - "@backend.district_manager"
+        calls:
+            - [setContainer, ['@service_container']]
+
+    admin.agent_note_controller:
+        class: AdminBundle\Controller\AgentNoteController
+        arguments:
+            - "@backend.agent_note_manager"
+        calls:
+            - [setContainer, ['@service_container']]
+
+    admin.plan_controller:
+        class: AdminBundle\Controller\PlanController
+        arguments:
+            - "@backend.plan_manager"
+        calls:
+            - [setContainer, ['@service_container']]
+
+    admin.staff_controller:
+        class: AdminBundle\Controller\StaffController
+        arguments:
+            - "@backend.admin_manager"
+            - "@backend.user_manager"
+        calls:
+            - [setContainer, ['@service_container']]
+
+    admin.overdue_subsciption_controller:
+        class: AdminBundle\Controller\OverdueSubscriptionController
+        arguments:
+            - "@backend.subscription_manager"
+            - "@admin.global_filter"
+        calls:
+            - [setContainer, ['@service_container']]
+
+    admin.transaction_controller:
+        class: AdminBundle\Controller\TransactionController
+        arguments:
+            - "@backend.transaction_manager"
+            - "@admin.global_filter"
+        calls:
+            - [setContainer, ['@service_container']]
+
+    admin.variable_mls_dues_transaction_controller:
+        class: AdminBundle\Controller\VariableMLSDuesTransactionController
+        arguments:
+            - "@backend.transaction_manager"
+            - "@admin.global_filter"
+            - "@admin.converge_api"
+        calls:
+            - [setContainer, ['@service_container']]
+
+    admin.agent_transaction_controller:
+        class: AdminBundle\Controller\AgentTransactionController
+        arguments:
+            - "@backend.transaction_manager"
+        calls:
+            - [setContainer, ['@service_container']]
+
+    admin.agent_referral_controller:
+        class: AdminBundle\Controller\AgentReferralController
+        arguments:
+            - "@backend.referral_manager"
+        calls:
+            - [setContainer, ['@service_container']]
+
+    admin.referral_controller:
+        class: AdminBundle\Controller\ReferralController
+        arguments:
+            - "@backend.referral_manager"
+            - "@admin.global_filter"
+        calls:
+            - [setContainer, ['@service_container']]
+
+    admin.license_category_controller:
+        class: AdminBundle\Controller\LicenseCategoryController
+        arguments:
+            - "@backend.license_category_manager"
+        calls:
+            - [setContainer, ['@service_container']]
+
+    admin.billing_option_controller:
+        class: AdminBundle\Controller\BillingOptionController
+        arguments:
+            - "@backend.billing_option_manager"
+        calls:
+            - [setContainer, ['@service_container']]
+
+    admin.system_message_controller:
+        class: AdminBundle\Controller\SystemMessageController
+        arguments:
+            - "@backend.system_message_manager"
+        calls:
+            - [setContainer, ['@service_container']]
+
+    admin.system_default_controller:
+        class: AdminBundle\Controller\SystemDefaultController
+        arguments:
+            - "@backend.system_default_manager"
+        calls:
+            - [setContainer, ['@service_container']]
+
+    admin.document_option_controller:
+        class: AdminBundle\Controller\DocumentOptionController
+        arguments:
+            - "@backend.document_option_manager"
+        calls:
+            - [setContainer, ['@service_container']]
+
+    admin.agent_document_controller:
+        class: AdminBundle\Controller\AgentDocumentController
+        arguments:
+            - "@backend.document_manager"
+            - "@vich_uploader.download_handler"
+        calls:
+            - [setContainer, ['@service_container']]
+
+    admin.document_controller:
+        class: AdminBundle\Controller\DocumentController
+        arguments:
+            - "@backend.document_manager"
+            - "@backend.system_default_manager"
+            - "@vich_uploader.download_handler"
+        calls:
+            - [setContainer, ['@service_container']]
+
+    admin.pending_document_controller:
+        class: AdminBundle\Controller\PendingDocumentController
+        arguments:
+            - "@backend.document_manager"
+            - "@admin.global_filter"
+        calls:
+            - [setContainer, ['@service_container']]
+
+    admin.expiring_document_controller:
+        class: AdminBundle\Controller\ExpiringDocumentController
+        arguments:
+            - "@backend.document_manager"
+            - "@admin.global_filter"
+        calls:
+            - [setContainer, ['@service_container']]
+
+    admin.expired_document_controller:
+        class: AdminBundle\Controller\ExpiredDocumentController
+        arguments:
+            - "@backend.document_manager"
+            - "@admin.global_filter"
+        calls:
+            - [setContainer, ['@service_container']]
+
+    admin.agent_payment_method_controller:
+        class: AdminBundle\Controller\AgentPaymentMethodController
+        arguments:
+            - "@backend.payment_method_manager"
+            - "@backend.transaction_manager"
+            - "@backend.credit_card_manager"
+            - "@admin.converge_api"
+            - "@admin.billing"
+        calls:
+            - [setContainer, ['@service_container']]
+
+    admin.agent_contact_controller:
+        class: AdminBundle\Controller\AgentContactController
+        arguments:
+        calls:
+            - [setContainer, ['@service_container']]
+
+    admin.agent_terms_controller:
+        class: AdminBundle\Controller\AgentTermsController
+        arguments:
+        calls:
+            - [setContainer, ['@service_container']]

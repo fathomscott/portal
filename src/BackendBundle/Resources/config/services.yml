@@ -1,0 +1,113 @@
+services:
+    # utilities
+    backend.security_generator:
+        class: BackendBundle\Security\Generator
+        arguments:
+            - "@security.encoder_factory"
+
+    backend.agent_loader:
+        class: BackendBundle\DataMigration\AgentLoader
+        arguments:
+            - "@backend.agent_manager"
+            - "@backend.document_manager"
+            - "@backend.document_option_manager"
+            - "@backend.state_manager"
+            - "@backend.district_manager"
+            - "@backend.plan_manager"
+            - "@doctrine.orm.default_entity_manager.delegate"
+            - "@service_container"
+
+    #listeners
+    backend.listener.forgot_password:
+        class: BackendBundle\EventListener\ForgotPasswordListener
+        calls:
+            - [setMailer, ['@mailer']]
+            - [setTwig, ['@twig']]
+        arguments: ['@service_container']
+        tags:
+            - { name: kernel.event_listener, event: backend_forgot_password, method: onForgotPassword }
+
+    backend.listener.reset_password:
+        class: BackendBundle\EventListener\ResetPasswordListener
+        calls:
+            - [setMailer, ['@mailer']]
+            - [setTwig, ['@twig']]
+        arguments: ['@service_container']
+        tags:
+            - { name: kernel.event_listener, event: backend_reset_password, method: onResetPassword }
+
+    backend.swiftmailer.send.performed.listener:
+        class: BackendBundle\EventListener\EmailSendPerformedListener
+        calls:
+            - [setEmailManager, ['@backend.email_manager']]
+        tags:
+            - { name: swiftmailer.default.plugin }
+
+    backend.listener.expiring_document_alert:
+        class: BackendBundle\EventListener\ExpiringDocumentAlertListener
+        calls:
+            - [setMailer, ['@mailer']]
+            - [setTwig, ['@twig']]
+        arguments: ['@service_container']
+        tags:
+            - { name: kernel.event_listener, event: backend_expiring_document_alert, method: onExpiringDocumentAlert }
+
+    kernel.listener.agent_payment_method_listener:
+        class: BackendBundle\EventListener\PaymentMethodListener
+        arguments:
+            - "@backend.user_manager"
+            - "@router"
+            - "@session"
+            - "@service_container"
+            - "@security.authorization_checker"
+            - "@security.token_storage"
+            - "@translator"
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+
+    kernel.listener.agent_late_subscription_listener:
+        class: BackendBundle\EventListener\LateSubscriptionListener
+        arguments:
+            - "@backend.user_manager"
+            - "@router"
+            - "@session"
+            - "@service_container"
+            - "@security.authorization_checker"
+            - "@security.token_storage"
+            - "@translator"
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+
+    backend.listener.mls_dues_email_agent:
+        class: BackendBundle\EventListener\MLSDuesEmailAdminListener
+        calls:
+            - [setMailer, ['@mailer']]
+            - [setTwig, ['@twig']]
+        arguments: ['@service_container']
+        tags:
+            - { name: kernel.event_listener, event: backend_mls_dues_email_agent, method: onSendMLSDuesToAdmin }
+
+    backend.listener.mls_dues_agent_payment_notification:
+        class: BackendBundle\EventListener\MLSDuesAgentPaymentNotificationListener
+        calls:
+            - [setMailer, ['@mailer']]
+            - [setTwig, ['@twig']]
+        arguments: ['@service_container']
+        tags:
+            - { name: kernel.event_listener, event: backend_mls_dues_agent_payment_notification, method: onSendNotification }
+
+    backend.listener.bill_subscription_agent_notification:
+        class: BackendBundle\EventListener\BillSubscriptionListener
+        calls:
+            - [setMailer, ['@mailer']]
+            - [setTwig, ['@twig']]
+        arguments: ['@service_container']
+        tags:
+            - { name: kernel.event_listener, event: backend_bill_subscription_agent_notification, method: onSendNotification }
+
+    #validators
+    backend.contains_alphanumeric_validator:
+        class: BackendBundle\Validator\Constraints\ConstraintAgentDistrictValidator
+        arguments: ['@translator', '@backend.agent_district_repository']
+        tags:
+            - { name: validator.constraint_validator }

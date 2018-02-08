@@ -1,0 +1,48 @@
+{% extends '@Admin/layout.html.twig' %}
+
+{% block title %}{{ 'navigation.district.districts'|trans }}{% endblock %}
+
+{% block breadcrumb %}
+    <li class="active">{{ 'navigation.district.districts'|trans }}</li>
+{% endblock %}
+
+{% block content %}
+    <a class="pull-right btn btn-primary m-b-10" href="{{ path('admin_district_add') }}">+ {{ 'verb.add'|trans }}</a>
+    <table id="data-table" class="table table-striped table-bordered dataTable no-footer dtr-inline list-table">
+        <thead>
+            <tr>
+                <th class="{{ 'a.id'|sort_class }}">{{ knp_pagination_sortable(districts, 'labels.id'|trans(), 'a.id') }}</th>
+                <th class="{{ 'a.name'|sort_class }}">{{ knp_pagination_sortable(districts, 'labels.name'|trans(), 'a.name') }}</th>
+                <th class="{{ 'b.name'|sort_class }}">{{ knp_pagination_sortable(districts, 'labels.state'|trans(), 'b.name') }}</th>
+                <th class="{{ 'a.MLSDuesRequired'|sort_class }}">{{ knp_pagination_sortable(districts, 'labels.mls_dues_required'|trans(), 'b.MLSDuesRequired') }}</th>
+                <th class="{{ 'a.MLSDuesType'|sort_class }}">{{ knp_pagination_sortable(districts, 'labels.mls_dues_type'|trans(), 'b.MLSDuesType') }}</th>
+                <th class="{{ 'a.MLSFee'|sort_class }}">{{ knp_pagination_sortable(districts, 'labels.mls_fee'|trans(), 'b.MLSDFee') }}</th>
+                <th>{{ 'labels.actions'|trans }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for district in districts %}
+                <tr>
+                    <td>{{ district.id }}</td>
+                    <td>{{ district.name }}</td>
+                    <td>{{ district.state.name }}</td>
+                    <td>{{ district.MLSDuesRequired ? 'labels.yes'|trans : 'labels.no'|trans }}</td>
+                    <td>{{ district.MLSDuesRequired ? district.MLSDuesTypeName|trans : '-' }}</td>
+                    <td>{{ district.MLSDuesRequired and district.MLSDuesType == 0 ? district.MLSFee : '-' }}</td>
+                    <td>
+                        <div class="btn-group">
+                            <a href="javascript:;" data-toggle="dropdown" class="btn btn-sm btn-info dropdown-toggle" aria-expanded="false">
+                                {{ 'labels.actions'|trans }} <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ path('admin_district_edit', {'district' : district.id}) }}">{{ 'verb.edit'|trans }}</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="col-md-5 media-middle"><p><strong>{{ 'labels.total_results'| trans }}:</strong> {{ total }}</p></div>
+    <div class="col-md-7 text-right">{{ knp_pagination_render(districts) }}</div>
+{% endblock content %}

@@ -1,0 +1,15 @@
+admin_district_index:
+    path:     /
+    defaults: { _controller: admin.district_controller:indexAction }
+
+admin_district_add:
+    path:     /add
+    defaults: { _controller: admin.district_controller:manageAction }
+
+admin_district_edit:
+    path:     /{district}/edit
+    defaults: { _controller: admin.district_controller:manageAction }
+
+admin_district_delete:
+    path:     /{district}/delete
+    defaults: { _controller: admin.district_controller:deleteAction }

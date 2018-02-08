@@ -1,0 +1,27 @@
+BackendBundle\Entity\Team:
+    type: entity
+    table: team
+    repositoryClass: BackendBundle\Repository\TeamRepository
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            generator:
+                strategy: IDENTITY
+        title:
+            column: title
+            type: string
+    oneToMany:
+        members:
+            targetEntity: BackendBundle\Entity\TeamMember
+            mappedBy: team
+            cascade: [all]
+    manyToOne:
+        district:
+            targetEntity: BackendBundle\Entity\District
+            inversedBy: teams
+            joinColumn:
+                name: district_id
+                referencedColumnName: id
+                onDelete: cascade

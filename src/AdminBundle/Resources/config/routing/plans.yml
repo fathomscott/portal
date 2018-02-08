@@ -1,0 +1,15 @@
+admin_plan_index:
+    path:     /
+    defaults: { _controller: admin.plan_controller:indexAction }
+
+admin_plan_add:
+    path:     /add
+    defaults: { _controller: admin.plan_controller:manageAction }
+
+admin_plan_edit:
+    path:     /{plan}/edit
+    defaults: { _controller: admin.plan_controller:manageAction }
+
+admin_plan_delete:
+    path:     /{plan}/delete
+    defaults: { _controller: admin.plan_controller:deleteAction }

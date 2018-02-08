@@ -1,0 +1,7 @@
+BackendBundle\Entity\Subscription:
+    AgentSubsciption{1..100}:
+        user: "@Agent<current()>"
+        plan: "@Plan<numberBetween(1, 8)>"
+        status: "<numberBetween(1, 3)>"
+        dueDate: "<dateTimeBetween('-1 month', '+1 month')>"
+        lastAttempt: "<dateTimeBetween('-1 month', '-1 hour')>"

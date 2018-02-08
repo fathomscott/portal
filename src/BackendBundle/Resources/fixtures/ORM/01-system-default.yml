@@ -1,0 +1,4 @@
+BackendBundle\Entity\SystemDefault:
+    SystemMessage:
+        onboardingEmail: onboarding@fathomrealty.com
+        dunningDays: 5

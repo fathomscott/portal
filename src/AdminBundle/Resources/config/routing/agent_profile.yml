@@ -1,0 +1,11 @@
+admin_agent_profile:
+    path:     /
+    defaults: { _controller: admin.agent_profile_controller:profileAction }
+
+admin_agent_profile_change_password:
+    path:     /change-password
+    defaults: { _controller: admin.agent_profile_controller:changePasswordAction }
+
+admin_agent_profile_plan:
+    path:     /plan
+    defaults: { _controller: admin.agent_profile_controller:planAction }

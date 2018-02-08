@@ -1,0 +1,7 @@
+admin_agent_terms_privacy_policy:
+    path:     /privacy-policy/
+    defaults: { _controller: admin.agent_terms_controller:privacyPolicyAction }
+
+admin_agent_terms_refund_policy:
+    path:     /refund-policy/
+    defaults: { _controller: admin.agent_terms_controller:refundPolicyAction }

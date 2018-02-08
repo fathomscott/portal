@@ -1,0 +1,29 @@
+BackendBundle\Entity\BillingOption:
+    type: entity
+    table: billing_option
+    repositoryClass: BackendBundle\Repository\BillingOptionRepository
+    id:
+        id:
+            type: integer
+            scale: 0
+            length: null
+            unique: false
+            nullable: false
+            precision: 0
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+            unique: true
+    oneToMany:
+        transactions:
+            targetEntity: BackendBundle\Entity\Transaction
+            mappedBy: billingOption
+            cascade: [all]

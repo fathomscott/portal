@@ -1,0 +1,57 @@
+BackendBundle\Entity\Document:
+    DocumentAgentLicense{1..100}:
+        agent: "@Agent<current()>"
+        documentOption: "@AgentLicense"
+        status: <numberBetween(0, 2)>
+        uploadedDate: "<($status === 1 ? Faker\\Provider\\DateTime::dateTimeBetween('-3 months', '-1 months') : null)>"
+        expirationDate: "<($documentOption->isExpirationDateRequired() == true ? Faker\\Provider\\DateTime::dateTimeBetween('-1 week', '+2 months') : null)>"
+        documentFile: "<upload('dummy_document.doc', @self->status === 1)>"
+    DocumentInsuranceDeclarationPage{1..100}:
+        agent: "@Agent<current()>"
+        documentOption: "@InsuranceDeclarationPage"
+        status: <numberBetween(0, 2)>
+        uploadedDate: "<($status === 1 ? Faker\\Provider\\DateTime::dateTimeBetween('-3 months', '-1 months') : null)>"
+        expirationDate: "<($documentOption->isExpirationDateRequired() == true ? Faker\\Provider\\DateTime::dateTimeBetween('-1 week', '+2 months') : null)>"
+        documentFile: "<upload('dummy_document.doc', @self->status === 1)>"
+    DocumentAgentAgreement{1..100}:
+        agent: "@Agent<current()>"
+        documentOption: "@AgentAgreement"
+        status: <numberBetween(0, 2)>
+        uploadedDate: "<($status === 1 ? Faker\\Provider\\DateTime::dateTimeBetween('-3 months', '-1 months') : null)>"
+        expirationDate: "<($documentOption->isExpirationDateRequired() == true ? Faker\\Provider\\DateTime::dateTimeBetween('-1 week', '+2 months') : null)>"
+        documentFile: "<upload('dummy_document.doc', @self->status === 1)>"
+    DocumentScheduleA{1..100}:
+        agent: "@Agent<current()>"
+        documentOption: "@ScheduleA"
+        status: <numberBetween(0, 2)>
+        uploadedDate: "<($status === 1 ? Faker\\Provider\\DateTime::dateTimeBetween('-3 months', '-1 months') : null)>"
+        expirationDate: "<($documentOption->isExpirationDateRequired() == true ? Faker\\Provider\\DateTime::dateTimeBetween('-1 week', '+2 months') : null)>"
+        documentFile: "<upload('dummy_document.doc', @self->status === 1)>"
+    DocumentPolicyManual{1..100}:
+        agent: "@Agent<current()>"
+        documentOption: "@PolicyManual"
+        status: <numberBetween(0, 2)>
+        uploadedDate: "<($status === 1 ? Faker\\Provider\\DateTime::dateTimeBetween('-3 months', '-1 months') : null)>"
+        expirationDate: "<($documentOption->isExpirationDateRequired() == true ? Faker\\Provider\\DateTime::dateTimeBetween('-1 week', '+2 months') : null)>"
+        documentFile: "<upload('dummy_document.doc', @self->status === 1)>"
+    DocumentW9{1..100}:
+        agent: "@Agent<current()>"
+        documentOption: "@W9"
+        status: <numberBetween(0, 2)>
+        uploadedDate: "<($status === 1 ? Faker\\Provider\\DateTime::dateTimeBetween('-3 months', '-1 months') : null)>"
+        expirationDate: "<($documentOption->isExpirationDateRequired() == true ? Faker\\Provider\\DateTime::dateTimeBetween('-1 week', '+2 months') : null)>"
+        documentFile: "<upload('dummy_document.doc', @self->status === 1)>"
+    DocumentOnBoardingWorkSheet{1..99}:
+        agent: "@Agent<current()>"
+        documentOption: "@OnBoardingWorkSheet"
+        status: 1
+        uploadedDate: "<($status === 1 ? Faker\\Provider\\DateTime::dateTimeBetween('-3 months', '-1 months') : null)>"
+        expirationDate: "<($documentOption->isExpirationDateRequired() == true ? Faker\\Provider\\DateTime::dateTimeBetween('-1 week', '+2 months') : null)>"
+        documentFile: "<upload('dummy_document.doc', @self->status === 1)>"
+    DocumentOnBoardingWorkSheet1{1..99}:
+        agent: "@Agent<current()>"
+        documentOption: "@OnBoardingWorkSheet"
+        status: 1
+        uploadedDate: "<($status === 1 ? Faker\\Provider\\DateTime::dateTimeBetween('-3 months', '-1 months') : null)>"
+        expirationDate: "<($documentOption->isExpirationDateRequired() == true ? Faker\\Provider\\DateTime::dateTimeBetween('-1 week', '+2 months') : null)>"
+        documentFile: "<upload('dummy_document.doc', @self->status === 1)>"

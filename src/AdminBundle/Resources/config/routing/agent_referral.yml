@@ -1,0 +1,11 @@
+admin_agent_referral_index:
+    path:     /
+    defaults: { _controller: admin.agent_referral_controller:indexAction }
+
+admin_agent_referral_filter:
+    path:     /filter
+    defaults: { _controller: admin.agent_referral_controller:filterAction }
+
+admin_agent_referral_reset:
+    path:     /reset
+    defaults: { _controller: admin.agent_referral_controller:resetAction }

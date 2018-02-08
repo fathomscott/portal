@@ -1,0 +1,33 @@
+{% extends '@Admin/layout.html.twig' %}
+
+{% form_theme form '@Admin/form_theme.html.twig' %}
+
+{% block title %}{{ 'navigation.pending_transaction.pending_transactions'|trans }}{% endblock %}
+
+{% block breadcrumb %}
+    <li class="active">{{ 'navigation.pending_transaction.pending_transactions'|trans }}</li>
+{% endblock %}
+
+{% block content %}
+    <table class="table">
+        <tr>
+            <td class="text-right col-md-3"><strong>{{ 'labels.agent'|trans }}:</strong></td>
+            <td><a href="{{ path('admin_agent_view', {agent: transaction.user.id}) }}">{{ transaction.user.fullName }}</td>
+        </tr>
+        <tr>
+            <td class="text-right col-md-3"><strong>{{ 'navigation.district.district'|trans }}:</strong></td>
+            <td>{{ transaction.district.name }}</td>
+        </tr>
+    </table>
+    {{ form_start(form) }}
+    {% for field in form %}
+        {{ form_row(field) }}
+    {% endfor %}
+
+    {# buttons #}
+    <div class="buttons col-md-offset-3 m-t-10">
+        <button type="submit" class="btn btn-warning m-r-10">{{ 'verb.submit'|trans }}</button>
+        <a href="{{ path('admin_variable_mls_dues_transaction_index') }}" class="btn btn-info">{{ 'navigation.back_to_list'|trans }}</a>
+    </div>
+    {{ form_end(form) }}
+{% endblock content %}

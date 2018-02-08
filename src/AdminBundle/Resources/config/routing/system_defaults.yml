@@ -1,0 +1,3 @@
+admin_system_default_manage:
+    path:     /
+    defaults: { _controller: admin.system_default_controller:manageAction }

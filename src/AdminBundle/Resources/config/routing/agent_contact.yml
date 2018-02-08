@@ -1,0 +1,3 @@
+admin_agent_contact_index:
+    path:     /
+    defaults: { _controller: admin.agent_contact_controller:indexAction }

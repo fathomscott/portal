@@ -1,0 +1,42 @@
+<div class="m-b-15">
+    <a class="btn btn-primary" href="{{ path('admin_agent_view', {'agent': agent.id}) }}">
+        {{ 'verb.view'|trans }} {{ 'labels.agent'|trans }}
+    </a>
+    {% if is_granted('ROLE_ADMIN') %}
+        <a class="btn btn-primary" href="{{ path('admin_agent_edit', {'agent': agent.id}) }}">
+            {{ 'verb.edit'|trans }} {{ 'labels.agent'|trans }}
+        </a>
+    {% endif %}
+    <a class="btn btn-primary" href="{{ path('admin_agent_note_index', {'agent': agent.id}) }}">
+        {{ 'labels.agent_notes'|trans }}
+    </a>
+    <a class="btn btn-primary" href="{{ path('admin_agent_document_index', {'agent': agent.id}) }}">
+        {{ 'labels.documents'|trans }}
+    </a>
+    <a class="btn btn-primary" href="{{ path('admin_agent_transactions', {'agent': agent.id}) }}">
+        {{ 'labels.transactions'|trans }}
+    </a>
+    {% if is_granted('ROLE_ADMIN') %}
+        <a class="btn btn-primary" href="{{ path('admin_agent_subscription', {'agent': agent.id}) }}">
+            {{ 'labels.subscription'|trans }}
+        </a>
+        <a id="view-referrals" class="btn btn-primary" href="{{ path('admin_referral_user_list', {'user': agent.id}) }}">
+            {{ 'labels.referrals'|trans }}
+        </a>
+        <a class="btn btn-primary" href="{{ path('admin_agent_change_password', {'agent': agent.id}) }}">
+            {{ 'labels.change_password'|trans }}
+        </a>
+        <a class="btn btn-primary" href="{{ path('admin_agent_send_activation', {'agent': agent.id}) }}">
+            {{ 'labels.send_activation_email'|trans }}
+        </a>
+        <a class="btn btn-primary" href="{{ path('admin_agent_payment_method', {'agent': agent.id}) }}">
+            {{ 'labels.payment_method'|trans }}
+        </a>
+        <a class="btn btn-primary" href="{{ path('admin_agent_charge', {'agent': agent.id}) }}">
+            {{ 'verb.charge'|trans }}
+        </a>
+        <a class="btn btn-primary" href="{{ path('admin_dashboard', {'_switch_user': agent.username}) }}">
+            {{ 'navigation.login_as_user'|trans }}
+        </a>
+    {% endif %}
+</div>

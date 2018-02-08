@@ -1,0 +1,45 @@
+{% extends "BackendBundle:Mail:base.html.twig" %}
+{% block subject %}
+You have expiring documents.
+{% endblock %}
+
+{% block body_text %}
+{% autoescape false %}
+Hello {{ firstName }},
+You have expiring documents
+
+File name | Expiration Date
+{% for document in agent.documents %}
+    {{ document.documentOption.name }} | {{ document.expirationDate|date }}
+{% endfor %}
+
+Please send these files to our email {{ onboardingEmail }}
+
+Thank you,
+{{ signature }}
+{% endautoescape %}
+{% endblock %}
+
+{% block html_message %}
+Hello {{ firstName }},<br>
+You have expiring documents<br/><br/>
+    <table>
+        <tr>
+            <th width="300">Document name</th>
+            <th width="200">Expiration Date</th>
+        </tr>
+        {% for document in agent.documents %}
+            <tr>
+                <td>{{ document.documentOption.name }}</td>
+                <td>{{ document.expirationDate|date }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <br/>
+    <br/>
+    Please send these files to our email <strong>{{ onboardingEmail }}</strong>
+    <br/>
+    <br/>
+Thank you,<br/>
+{{ signature }}
+{% endblock %}

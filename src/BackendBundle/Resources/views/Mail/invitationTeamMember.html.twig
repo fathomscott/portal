@@ -1,0 +1,28 @@
+{% extends "BackendBundle:Mail:base.html.twig" %}
+{% block subject %}
+    {{ message }}
+{% endblock %}
+
+{% block body_text %}
+{% autoescape false %}
+    {{ message }}
+
+    {% if teamMember.agent %}
+        {{ url }}<br>
+    {% else %}
+        You are not registered please contact us.<br/>
+    {% endif %}
+    {{ signature }}
+{% endautoescape %}
+{% endblock %}
+
+{% block html_message %}
+    {{ message }}<br/>
+
+    {% if teamMember.agent %}
+        {{ url }}<br>
+    {% else %}
+        You are not registered please contact us.<br/>
+    {% endif %}
+    {{ signature }}
+{% endblock %}

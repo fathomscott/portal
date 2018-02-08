@@ -1,0 +1,60 @@
+{% extends '@Admin/layout.html.twig' %}
+
+{% form_theme form '@Admin/form_theme.html.twig' %}
+
+{% block title %}{{ 'navigation.manage'|trans }} {{ 'navigation.district.district'|trans }}{% endblock %}
+
+{% block breadcrumb %}
+    <li><a href="{{ path('admin_district_index') }}">{{ 'navigation.district.districts'|trans }}</a></li>
+    <li class="active">{{ 'navigation.manage'|trans }} {{ 'navigation.district.district'|trans }}</li>
+{% endblock %}
+
+{% block content %}
+   {{ form_start(form) }}
+       {% for field in form %}
+          {{ form_row(field) }}
+       {% endfor %}
+
+       {# buttons #}
+       <div class="buttons col-md-offset-3 m-t-10">
+          <button type="submit" class="btn btn-warning m-r-10">{{ 'verb.submit'|trans }}</button>
+          <a href="{{ path('admin_district_index') }}" class="btn btn-info">{{ 'navigation.back_to_list'|trans }}</a>
+
+          {% if not isNew %}
+              <a href="{{ path('admin_district_delete', {'district': district.id}) }}" class="confirm-delete btn btn-danger">{{ 'verb.delete'|trans }}</a>
+              {{ include('@Admin/helpers/confirm_modal.html.twig') }}
+          {% endif %}
+       </div>
+   {{ form_end(form) }}
+
+{% endblock content %}
+
+{% block javascript %}
+    <script type="text/javascript">
+        $(function () {
+            $('.district-director').chosen({allow_single_deselect: true});
+            var dues_required = $('.dues-required');
+            var dues_type_field = $('.dues-type');
+            var dues_type = dues_type_field.closest('.form-group');
+            var dues_fee = $('.mls-fee').closest('.form-group');
+
+            dues_required.on('change', function () {
+                if (dues_required.prop('checked')) {
+                    dues_type.show();
+                    dues_type_field.trigger('change');
+                } else {
+                    dues_type.hide();
+                    dues_fee.hide();
+                }
+            }).trigger('change');
+
+            dues_type_field.on('change', function () {
+                if (dues_type_field.val() == '0') {
+                    dues_fee.show();
+                } else {
+                    dues_fee.hide();
+                }
+            }).trigger('change');
+        });
+    </script>
+{% endblock %}

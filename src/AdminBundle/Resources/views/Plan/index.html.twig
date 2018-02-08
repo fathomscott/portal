@@ -1,0 +1,52 @@
+{% extends '@Admin/layout.html.twig' %}
+
+{% block title %}{{ 'navigation.plan.plans'|trans }}{% endblock %}
+
+{% block breadcrumb %}
+    <li class="active">{{ 'navigation.plan.plans'|trans }}</li>
+{% endblock %}
+
+{% block content %}
+    <a class="pull-right btn btn-primary m-b-10" href="{{ path('admin_plan_add') }}">+ {{ 'verb.add'|trans }}</a>
+    <table id="data-table" class="table table-striped table-bordered dataTable no-footer dtr-inline list-table">
+        <thead>
+            <tr>
+                <th class="{{ 'a.id'|sort_class }}">{{ knp_pagination_sortable(plans, 'labels.id'|trans(), 'a.id') }}</th>
+                <th class="{{ 'a.name'|sort_class }}">{{ knp_pagination_sortable(plans, 'labels.name'|trans(), 'a.name') }}</th>
+                <th class="{{ 'a.public'|sort_class }}">{{ knp_pagination_sortable(plans, 'labels.public'|trans(), 'a.public') }}</th>
+                <th class="{{ 'a.status'|sort_class }}">{{ knp_pagination_sortable(plans, 'labels.status'|trans(), 'a.status') }}</th>
+                <th class="{{ 'a.monthlyPrice'|sort_class }}">{{ knp_pagination_sortable(plans, 'labels.monthly_price'|trans(), 'a.monthlyPrice') }}</th>
+                <th class="{{ 'a.annualPrice'|sort_class }}">{{ knp_pagination_sortable(plans, 'labels.annual_price'|trans(), 'a.annualPrice') }}</th>
+                <th class="{{ 'a.referralDiscount'|sort_class }}">{{ knp_pagination_sortable(plans, 'labels.referral_discount'|trans(), 'a.referralDiscount') }}</th>
+                <th class="{{ 'a.created'|sort_class }}">{{ knp_pagination_sortable(plans, 'labels.date_added'|trans(), 'a.created') }}</th>
+               <th>{{ 'labels.actions'|trans }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for plan in plans %}
+                <tr>
+                    <td>{{ plan.id }}</td>
+                    <td>{{ plan.name }}</td>
+                    <td>{{ plan.public ? 'labels.yes'|trans : 'labels.no'|trans }}</td>
+                    <td>{{ plan.statusName|trans }}</td>
+                    <td>{{ plan.monthlyPrice }}</td>
+                    <td>{{ plan.annualPrice }}</td>
+                    <td>{{ plan.referralDiscount }}</td>
+                    <td>{{ plan.created|date }}</td>
+                    <td>
+                        <div class="btn-group">
+                            <a href="javascript:;" data-toggle="dropdown" class="btn btn-sm btn-info dropdown-toggle" aria-expanded="false">
+                                {{ 'labels.actions'|trans }} <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ path('admin_plan_edit', {'plan' : plan.id}) }}">{{ 'verb.edit'|trans }}</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="col-md-5 media-middle"><p><strong>{{ 'labels.total_results'| trans }}:</strong> {{ total }}</p></div>
+    <div class="col-md-7 text-right">{{ knp_pagination_render(plans) }}</div>
+{% endblock content %}

@@ -1,0 +1,31 @@
+{% extends '@Admin/layout.html.twig' %}
+
+{% form_theme form '@Admin/form_theme.html.twig' %}
+
+{% block title %}{{ 'navigation.manage'|trans }} {{ 'navigation.agent.subscription'|trans }}{% endblock %}
+
+{% block breadcrumb %}
+    <li><a href="{{ path('admin_agent_index') }}">{{ 'navigation.agent.agents'|trans }}</a></li>
+    <li><a href="{{ path('admin_agent_view', {'agent' : agent.id}) }}">{{ 'verb.view'|trans }} {{ 'navigation.agent.agent'|trans }}</a></li>
+    <li class="active">{{ 'navigation.manage'|trans }} {{ 'navigation.agent.subscription'|trans }}</li>
+{% endblock %}
+
+{% block content %}
+    {{ include('@Admin/Agent/helpers/menu.html.twig') }}
+    {{ include('@Admin/Agent/helpers/referrals.html.twig') }}
+    {{ form_start(form) }}
+        {% for field in form %}
+            {{ form_row(field) }}
+        {% endfor %}
+
+        {# buttons #}
+        <div class="buttons col-md-offset-3 m-t-10">
+            <button type="submit" class="btn btn-warning m-r-10">{{ 'verb.submit'|trans }}</button>
+            <a class="btn btn-info" href="{{ path('admin_agent_view', {'agent' : agent.id}) }}">{{ 'verb.view'|trans }} {{ 'navigation.agent.agent'|trans }}</a>
+        </div>
+    {{ form_end(form) }}
+
+{% endblock content %}
+{% block javascript %}
+    <script type="text/javascript" src="{{ asset('js/pages/referrals.js') }}"></script>
+{% endblock javascript %}

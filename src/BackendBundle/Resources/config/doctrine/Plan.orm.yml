@@ -1,0 +1,62 @@
+BackendBundle\Entity\Plan:
+    type: entity
+    table: plan
+    repositoryClass: BackendBundle\Repository\PlanRepository
+    id:
+        id:
+            type: integer
+            scale: 0
+            length: null
+            unique: false
+            nullable: false
+            precision: 0
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            length: 255
+            nullable: false
+            unique: true
+        public:
+            type: boolean
+        status:
+            type: integer
+        monthlyPrice:
+            type: decimal
+            scale: 2
+            length: null
+            unique: false
+            nullable: true
+            precision: 0
+            column: monthly_price
+        annualPrice:
+            type: decimal
+            scale: 2
+            length: null
+            unique: false
+            nullable: true
+            precision: 0
+            column: annual_price
+        referralDiscount:
+            type: decimal
+            scale: 2
+            length: null
+            unique: false
+            nullable: true
+            precision: 0
+            column: referral_discount
+        created:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+            column: created
+    lifecycleCallbacks: {  }
+    oneToMany:
+        subscriptions:
+            targetEntity: BackendBundle\Entity\Subscription
+            mappedBy: plan

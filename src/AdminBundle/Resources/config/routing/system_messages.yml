@@ -1,0 +1,15 @@
+admin_system_message_index:
+    path:     /
+    defaults: { _controller: admin.system_message_controller:indexAction }
+
+admin_system_message_add:
+    path:     /add
+    defaults: { _controller: admin.system_message_controller:manageAction }
+
+admin_system_message_edit:
+    path:     /{systemMessage}/edit
+    defaults: { _controller: admin.system_message_controller:manageAction }
+
+admin_system_message_delete:
+    path:     /{systemMessage}/delete
+    defaults: { _controller: admin.system_message_controller:deleteAction }

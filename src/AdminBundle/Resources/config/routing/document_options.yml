@@ -1,0 +1,15 @@
+admin_document_option_index:
+    path:     /
+    defaults: { _controller: admin.document_option_controller:indexAction }
+
+admin_document_option_add:
+    path:     /add
+    defaults: { _controller: admin.document_option_controller:manageAction }
+
+admin_document_option_edit:
+    path:     /{documentOption}/edit
+    defaults: { _controller: admin.document_option_controller:manageAction }
+
+admin_document_option_delete:
+    path:     /{documentOption}/delete
+    defaults: { _controller: admin.document_option_controller:deleteAction }

@@ -1,0 +1,38 @@
+{% extends "BackendBundle:Mail:base.html.twig" %}
+{% block subject %}
+MLS dues payment notification for {{ district.name }}
+{% endblock %}
+
+{% block body_text %}
+{% autoescape false %}
+Hello {{ firstName }},
+We attempted to bill your MLS dues for {{ district.name }} but the payment information you have on file failed to process. The error message was:
+
+{{ transaction.notes }}
+
+If you need to update your payment information, please click the link below and login to your account:
+
+{{ url('admin_agent_profile_payment_method_manage') }}
+
+Our system will automatically attempt to bill your account again in 24 hours.
+
+Thank you,
+{{ signature }}
+{% endautoescape %}
+{% endblock %}
+
+{% block html_message %}
+Hello {{ firstName }},<br/>
+We attempted to bill your MLS dues for {{ district.name }} but the payment information you have on file failed to process. The error message was:<br/>
+<br/>
+{{ transaction.notes }}<br/>
+<br/>
+If you need to update your payment information, please click the link below and login to your account:<br/>
+<br/>
+<a href="{{ url('admin_agent_profile_payment_method_manage') }}">{{ url('admin_agent_profile_payment_method_manage') }}</a><br/>
+<br/>
+Our system will automatically attempt to bill your account again in 24 hours.<br/>
+<br/>
+Thank you,<br/>
+{{ signature }}
+{% endblock %}

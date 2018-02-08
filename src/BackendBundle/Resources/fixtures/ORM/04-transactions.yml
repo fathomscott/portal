@@ -1,0 +1,8 @@
+BackendBundle\Entity\Transaction:
+    Transaction{1..500}:
+        paymentMethod: '@AgentCreditCard<numberBetween(1, 100)>'
+        user: '<($paymentMethod->getUser())>'
+        created: <dateTimeBetween('-3 months', 'now')>
+        amount: <randomFloat(2, 2, 19)>
+        status: <numberBetween(1, 5)>
+        notes: <sentence()>

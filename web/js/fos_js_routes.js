@@ -1,0 +1,1 @@
+fos.Router.setData({"base_url":"","routes":{"admin_dismiss_message":{"tokens":[["variable","\/","[^\/]++","systemMessage"],["text","\/admin\/dismiss-message"]],"defaults":[],"requirements":[],"hosttokens":[]}},"prefix":"","host":"localhost","scheme":"http"});

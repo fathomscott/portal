@@ -1,0 +1,15 @@
+{% form_theme filterForm '@Admin/form_filter_theme.html.twig' %}
+<div class="filter-form">
+    {{ form_start(filterForm, {'action': filterFormUrl}) }}
+        {% for field in filterForm %}
+            {{ form_row(field) }}
+        {% endfor %}
+
+        {# buttons #}
+        <div style="clear: both;"></div>
+        <div class="buttons text-right m-t-15 m-r-30 m-b-30">
+            <button type="submit" class="btn btn-info m-r-10">{{ 'verb.filter'|trans }}</button>
+            <a href="{{ filterFormResetUrl }}" class="btn btn-default">{{ 'verb.reset'|trans }}</a>
+        </div>
+    {{ form_end(filterForm) }}
+</div>

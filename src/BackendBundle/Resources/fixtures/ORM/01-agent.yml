@@ -1,0 +1,47 @@
+BackendBundle\Entity\Agent:
+    # first 10 Agents are Distroct Directors
+    Agent1:
+        email: agent@example.com
+        firstName: Piter
+        lastName: White
+        salt: <generateSalt()>
+        confirmationToken: <generateSalt()>
+        password: <generatePassword('password', $salt)>
+        roles: ['ROLE_AGENT']
+        status: 1
+        accountType: ROLE_AGENT
+        address: <address()>
+        phoneNumber: <phoneNumber()>
+        personalEmail: <email()>
+        birthDate: <dateTimeBetween('-45 years', '-25 years')>
+        joinedDate: <dateTimeBetween('-3 months', '-2 weeks')>
+        socialSecurityNumber: <numberBetween(1111111111, 11111111110)>
+        ein: <numberBetween(1111111111, 11111111110)>
+        pastFirm: <company()>
+        RELExpirationDate: <dateTimeBetween('+6 months', '+2 years')>
+        insuranceExpirationDate: <dateTimeBetween('+6 months', '+2 years')>
+        isMentor: <numberBetween(0, 1)>
+        isMentee: <numberBetween(0, 1)>
+    Agent{2..100}:
+        email: <email()>
+        firstName: <firstName()>
+        lastName: <lastName()>
+        salt: <generateSalt()>
+        confirmationToken: <generateSalt()>
+        password: <generatePassword('password', $salt)>
+        roles: ['ROLE_AGENT']
+        status: <numberBetween(0, 2)>
+        accountType: ROLE_AGENT
+        address: <address()>
+        phoneNumber: <phoneNumber()>
+        personalEmail: <email()>
+        birthDate: <dateTimeBetween('-45 years', '-25 years')>
+        joinedDate: <dateTimeBetween('-3 months', '-2 weeks')>
+        socialSecurityNumber: <numberBetween(1111111111, 11111111110)>
+        ein: <numberBetween(1111111111, 11111111110)>
+        pastFirm: <company()>
+        RELExpirationDate: <dateTimeBetween('+6 months', '+2 years')>
+        insuranceExpirationDate: <dateTimeBetween('+6 months', '+2 years')>
+        isMentor: <numberBetween(0, 1)>
+        isMentee: <numberBetween(0, 1)>
+

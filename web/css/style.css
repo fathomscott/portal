@@ -1,0 +1,136 @@
+.subscription-logo {
+    display: block;
+    height: 20px;
+    width: 20px;
+    background-image: url("/images/fathom-20x20.png");
+    float: left;
+    margin: 5px 10px 0 0;
+}
+.subscription-logo.login-page {
+    margin: 10px 10px 0 0;
+    height: 28px;
+    width: 28px;
+    background-size: 28px 28px;
+}
+
+.choice-option { margin: 0 0 5px 0; }
+.choice-option input { position: absolute;  }
+.choice-option label { margin: 4px 0 0 25px; font-family: 'Open Sans',"Helvetica Neue",Helvetica,Arial,sans-serif; font-size: 12px; }
+
+.agent-district-widget {
+    padding: 10px;
+    margin: 10px;
+    background-color: #f7fef7;
+    border-radius: 5px;
+    width: 340px;
+}
+.agent-district-widget p {
+    float: left;
+    margin: 4px 0 0 0;
+    width: 180px;
+}
+
+.agent-district-widget input {
+    margin: 2px 0 0 0;
+}
+
+.agent-district-widget small {
+    margin: 5px 5px 0 0;
+    float: left;
+}
+
+.agent-district-widget a.remove-agent-district {
+    display: block;
+    float: right;
+    font-size: 18px;
+    margin: 0;
+    cursor: pointer;
+}
+.agent-district-widget a.remove-agent-district:hover {
+    text-decoration: none;
+}
+
+/* third party links */
+.third-party-links {margin-bottom:10px !important; font-size:1.2em; }
+.third-party-links img { margin:auto 8px 5px auto !important; }
+/* end third party links */
+
+#user-referrals .modal-body { text-align: center;  }
+#user-referrals .modal-body table { text-align: left; }
+#user-referrals .modal-body i {
+    font-size: 48px;
+}
+
+/* for mobile devices and tablets in portrait position */
+@media (max-width: 1000px) {
+    .responsive-table {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+    }
+    .responsive-table tr:first-child td:first-child {
+        width: 35%;
+    }
+    .responsive-table td {
+        font-size: 13px !important;
+        line-height: inherit !important;
+        padding: 4px !important;
+    }
+
+    .responsive-table .even td {
+        background-color: #fafafa
+    }
+    .content .main-content {
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 15px;
+    }
+    .desktop-table {
+        display: none;
+    }
+    .mobile-scroll {
+        display: none;
+        height: 50px;
+        width: 50px;
+        border-radius: 10px;
+        background-color: #000;
+        opacity: 0.6;
+        position: fixed;
+        color: #fefefe;
+        text-align: center;
+        cursor: pointer;
+        font-size: 36px;
+    }
+    .mobile-scroll.top {
+        right: 20px;
+        top: 20px;
+    }
+    .mobile-scroll.bottom {
+        right: 20px;
+        top: 75px;
+    }
+}
+
+/* tablets in landscape position */
+@media (min-width: 1001px) and (max-width: 1400px) {
+    .table {
+        /*table-layout: fixed;*/
+        font-size: 12px;
+    }
+    .table td {
+        line-height: 20px !important;
+    }
+}
+
+/* for tables in landscape position and desktop screens */
+@media (min-width: 1001px) {
+    .responsive-table {
+        display: none;
+    }
+    .desktop-table {
+        display: table;
+    }
+    .show-filters {
+        display: none;
+    }
+}

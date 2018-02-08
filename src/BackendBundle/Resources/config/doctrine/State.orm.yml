@@ -1,0 +1,42 @@
+BackendBundle\Entity\State:
+    type: entity
+    table: state
+    repositoryClass: BackendBundle\Repository\StateRepository
+    id:
+        id:
+            type: integer
+            scale: 0
+            length: null
+            unique: false
+            nullable: false
+            precision: 0
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+            unique: true
+        code:
+            type: string
+            length: 15
+            fixed: false
+            unique: false
+        terminalPin:
+            type: string
+            length: 100
+            nullable: true
+        merchantId:
+            type: string
+            length: 100
+            nullable: true
+    oneToMany:
+        districts:
+            targetEntity: BackendBundle\Entity\District
+            mappedBy: state
+            cascade: [all]

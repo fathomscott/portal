@@ -1,0 +1,24 @@
+BackendBundle\Entity\LicenseCategory:
+    type: entity
+    table: license_category
+    repositoryClass: BackendBundle\Repository\LicenseCategoryRepository
+    id:
+        id:
+            type: integer
+            scale: 0
+            length: null
+            unique: false
+            nullable: false
+            precision: 0
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+            unique: true

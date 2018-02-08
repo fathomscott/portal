@@ -1,0 +1,133 @@
+admin_dashboard:
+    path:     /admin
+    defaults: { _controller: AdminBundle:Default:index }
+
+admin_dismiss_message:
+    path:     /admin/dismiss-message/{systemMessage}
+    defaults: { _controller: AdminBundle:Default:dismissMessage }
+    options:
+        expose: true
+
+admin_global_filter:
+    path:     /admin
+    defaults: { _controller: AdminBundle:Default:globalFiler }
+
+admin_agent:
+    prefix:   /admin/agent
+    resource: "routing/agents.yml"
+
+admin_emails:
+    prefix:    /admin/email
+    resource: "routing/emails.yml"
+
+admin_states:
+    prefix:    /admin/state
+    resource: "routing/stetes.yml"
+
+admin_teams:
+    prefix:    /admin/team
+    resource: "routing/teams.yml"
+
+admin_agent_teams:
+    prefix:    /admin/agent/team
+    resource: "routing/agent_teams.yml"
+
+admin_agent_team_members:
+    prefix:    /admin/agent/team/{team}/team-members
+    resource: "routing/agent_team_members.yml"
+
+admin_agent_profile:
+    prefix:    /admin/agent-profile
+    resource: "routing/agent_profile.yml"
+
+admin_district:
+    prefix:    /admin/district
+    resource: "routing/districts.yml"
+
+admin_agent_notes:
+    prefix:    /admin/agent/{agent}/notes
+    resource: "routing/agent_notes.yml"
+
+admin_agent_documents:
+    prefix:    /admin/agent/{agent}/documents
+    resource: "routing/agent_documents.yml"
+
+admin_plans:
+    prefix:    /admin/plan
+    resource: "routing/plans.yml"
+
+admin_staff:
+    prefix:    /admin/staff
+    resource: "routing/staff.yml"
+
+admin_overdue_subsciption:
+    prefix:    /admin/overdue-subsciptions
+    resource: "routing/overdue_subscription.yml"
+
+admin_transactions:
+    prefix:    /admin/transactions
+    resource: "routing/transactions.yml"
+
+admin_variable_mls_dues_transactions:
+    prefix:    /admin/variable-mls-dues-transactions
+    resource: "routing/variiable_mls_dues_transactions.yml"
+
+admin_agent_transactions:
+    prefix:    /admin/agent/transactions
+    resource: "routing/agent_transactions.yml"
+
+admin_agent_referrals:
+    prefix:    /admin/agent/referrals
+    resource: "routing/agent_referral.yml"
+
+admin_referrals:
+    prefix:    /admin/referrals
+    resource: "routing/referral.yml"
+
+admin_license_categories:
+    prefix:    /admin/license-category
+    resource: "routing/license_categories.yml"
+
+admin_billing_options:
+    prefix:    /admin/billing-option
+    resource: "routing/billing_options.yml"
+
+admin_system_messages:
+    prefix:    /admin/system-message
+    resource: "routing/system_messages.yml"
+
+admin_system_defaults:
+    prefix:    /admin/system-defaults
+    resource: "routing/system_defaults.yml"
+
+admin_document_option:
+    prefix:    /admin/document-options
+    resource: "routing/document_options.yml"
+
+admin_documents:
+    prefix:    /admin/agent/document
+    resource: "routing/documents.yml"
+
+admin_pending_documents:
+    prefix:    /admin/pending/documents
+    resource: "routing/pending_documents.yml"
+
+admin_expiring_documents:
+    prefix:    /admin/expiring/documents
+    resource: "routing/expiring_documents.yml"
+
+admin_expired_documents:
+    prefix:    /admin/expired/documents
+    resource: "routing/expired_documents.yml"
+
+admin_agent_payment_method:
+    prefix:    /admin/agent/payment-method
+    resource: "routing/agent_payment_method.yml"
+
+admin_agent_contact:
+    prefix:    /admin/agent/contact
+    resource: "routing/agent_contact.yml"
+
+admin_agent_terms:
+    prefix:    /admin/agent/terms
+    resource: "routing/agent_terms.yml"

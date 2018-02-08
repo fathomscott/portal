@@ -1,0 +1,11 @@
+admin_email_index:
+    path:     /
+    defaults: { _controller: admin.email_controller:indexAction }
+
+admin_email_view:
+    path:     /{email}
+    defaults: { _controller: admin.email_controller:viewAction }
+
+admin_email_delete:
+    path:     /{email}/delete
+    defaults: { _controller: admin.email_controller:deleteAction }

@@ -1,0 +1,10 @@
+BackendBundle\Entity\TeamMember:
+    TeamMeber{1..25}:
+        agent: "@Agent<current()>"
+        teamLeader: true
+        team: "@Team<current()>"
+
+    TeamMember{26..100}:
+        agent: "@Agent<current()>"
+        teamLeader: false
+        team: "@Team<numberBetween(1, 25)>"

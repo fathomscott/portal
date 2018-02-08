@@ -1,0 +1,7 @@
+BackendBundle\Entity\Email:
+    Email{2..105}:
+        from: <email()>
+        to: <email()>
+        created: <dateTimeBetween('-3 months', 'now')>
+        subject: <sentence()>
+        body: <paragraph()>

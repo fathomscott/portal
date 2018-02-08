@@ -1,0 +1,79 @@
+{% extends '@Admin/layout.html.twig' %}
+
+{% block title %}{{ 'verb.view'|trans }} {{ 'navigation.agent.agent'|trans }}{% endblock %}
+
+{% block breadcrumb %}
+    <li><a href="{{ path('admin_agent_index') }}">{{ 'navigation.agent.agents'|trans }}</a></li>
+    <li class="active">{{ 'verb.view'|trans }} {{ 'navigation.agent.agent'|trans }} </li>
+{% endblock %}
+
+{% block content %}
+    {{ include('@Admin/Agent/helpers/menu.html.twig') }}
+    {{ include('@Admin/Agent/helpers/referrals.html.twig') }}
+
+    <table id="data-table" class="table table-striped dtr-inline">
+        <tr><th width="30%">{{ 'labels.id'|trans }}</th><th>{{ agent.id }}</th></tr>
+        {% if agent.agentDistricts|length > 0 %}
+            <tr>
+                <td>
+                    <strong>{{ 'navigation.district.districts'|trans }}</strong>
+                    <table class="table">
+                        <thead><tr><td></td><td></td></tr></thead>
+                        <tbody>
+                        {% for agentDistrict in agent.agentDistricts %}
+                            <tr>
+                                <td>{{ agentDistrict.district.name }}</td>
+                                <td>
+                                    {% if agentDistrict.primaryMarket %}
+                                        <strong>{{ 'labels.primary_market'|trans }}</strong>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if agentDistrict.districtDirector %}
+                                        <strong>{{ 'labels.district_director'|trans }}</strong>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </td>
+                <td></td>
+            </tr>
+        {% endif %}
+        <tr><td>{{ 'labels.email'|trans }}</td><td>{{ agent.email }}</td></tr>
+        <tr><td>{{ 'labels.personal_email'|trans }}</td><td>{{ agent.personalEmail }}</td></tr>
+        <tr>
+		<td>{{ 'labels.all_names'|trans }}</td>
+		<td>{{ agent.firstName }} {{ agent.nickName != '' ? '('~agent.nickName~')' }} {{ agent.middleName }} {{ agent.middleInitial }}
+		{{ agent.lastName }} {{ agent.suffix }}</td>
+	</tr>
+        <tr><td>{{ 'labels.legal_name'|trans }}</td><td>{{ agent.legalName }}</td></tr>
+        <tr><td>{{ 'labels.status'|trans }}</td><td>{{ agent.statusName|trans }}</td></tr>
+        <tr><td>{{ 'labels.address'|trans }}</td><td>{{ agent.address }}</td></tr>
+        <tr><td>{{ 'labels.city'|trans }}</td><td>{{ agent.city }}</td></tr>
+        <tr><td>{{ 'labels.state'|trans }}</td><td>{{ agent.state.name }}</td></tr>
+        <tr><td>{{ 'labels.zip'|trans }}</td><td>{{ agent.zip }}</td></tr>
+        <tr><td>{{ 'labels.phone_number'|trans }}</td><td>{{ agent.phoneNumber }}</td></tr>
+        <tr><td>{{ 'labels.birth_date'|trans }}</td><td>{{ agent.birthDate|date }}</td></tr>
+        <tr><td>{{ 'labels.date_joined'|trans }}</td><td>{{ agent.joinedDate|date }}</td></tr>
+        <tr><td>{{ 'labels.social_security_number'|trans }}</td><td>{{ agent.socialSecurityNumber }}</td></tr>
+        <tr><td>{{ 'labels.employer_id_number'|trans }}</td><td>{{ agent.ein }}</td></tr>
+        <tr><td>{{ 'labels.past_firm'|trans }}</td><td>{{ agent.pastFirm }}</td></tr>
+        <tr><td>{{ 'labels.real_estate_license_expiration_date'|trans }}</td><td>{{ agent.rELExpirationDate|date }}</td></tr>
+        <tr><td>{{ 'labels.insurance_expiration_date'|trans }}</td><td>{{ agent.insuranceExpirationDate|date }}</td></tr>
+        <tr><td>{{ 'labels.is_mentor'|trans }}</td><td>{{ agent.isMentor ? 'labels.yes'|trans : 'labels.no'|trans }}</td></tr>
+        <tr><td>{{ 'labels.is_mentee'|trans }}</td><td>{{ agent.isMentee ? 'labels.yes'|trans : 'labels.no'|trans }}</td></tr>
+    </table>
+    <div class="buttons">
+        <a class="btn btn-info" href="{{ path('admin_agent_index') }}">{{ 'navigation.back_to_list'|trans }}</a>
+        {% if is_granted('ROLE_ADMIN') %}
+            <a class="btn btn-warning" href="{{ path('admin_agent_edit', {'agent' : agent.id}) }}">{{ 'verb.edit'|trans }}</a>
+            <a class="btn btn-danger confirm-delete" href="{{ path('admin_agent_delete', {'agent': agent.id}) }}">{{ 'verb.delete'|trans }}</a>
+        {% endif %}
+    </div>
+    {{ include('@Admin/helpers/confirm_modal.html.twig') }}
+{% endblock content %}
+{% block javascript %}
+    <script type="text/javascript" src="{{ asset('js/pages/referrals.js') }}"></script>
+{% endblock javascript %}

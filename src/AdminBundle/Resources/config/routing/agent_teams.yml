@@ -1,0 +1,15 @@
+admin_agent_team_index:
+    path:     /
+    defaults: { _controller: admin.agent_team_controller:indexAction }
+
+admin_agent_team_add:
+    path:     /add
+    defaults: { _controller: admin.agent_team_controller:manageAction }
+
+admin_agent_team_edit:
+    path:     /{team}
+    defaults: { _controller: admin.agent_team_controller:manageAction }
+
+admin_agent_team_delete:
+    path:     /{team}/delete
+    defaults: { _controller: admin.agent_team_controller:deleteAction }

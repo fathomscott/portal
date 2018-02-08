@@ -1,0 +1,42 @@
+BackendBundle\Entity\AgentDistrict:
+    type: entity
+    table: agent_district
+    repositoryClass: BackendBundle\Repository\AgentDistrictRepository
+    id:
+        id:
+            type: integer
+            scale: 0
+            length: null
+            unique: false
+            nullable: false
+            precision: 0
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        districtDirector:
+            type: boolean
+        primaryMarket:
+            type: boolean
+        created:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+    manyToOne:
+        agent:
+            targetEntity: Agent
+            inversedBy: agentDistricts
+            joinColumn:
+                name: agent_id
+                referencedColumnName: id
+                onDelete: cascade
+        district:
+            targetEntity: District
+            inversedBy: agentDistricts
+            joinColumn:
+                name: district_id
+                referencedColumnName: id
+                onDelete: cascade

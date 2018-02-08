@@ -1,0 +1,28 @@
+{% extends "BackendBundle:Mail:base.html.twig" %}
+{% block subject %}
+MLS dues payment notification for {{ district.name }}
+{% endblock %}
+
+{% block body_text %}
+Hello {{ firstName }},
+This email is being sent to inform you that we have successfully billed your MLS Dues for {{ district.name }}.
+
+Amount: {{ transaction.amount }}
+
+Thank you again for continuing to support Fantom Realty!
+
+Sincerely,
+{{ signature }}
+{% endblock %}
+
+{% block html_message %}
+Hello {{ firstName }},<br/>
+This email is being sent to inform you that we have successfully billed your MLS Dues for {{ district.name }}.<br/>
+<br/>
+Amount: {{ transaction.amount }}<br/>
+<br/>
+Thank you again for continuing to support Fantom Realty!<br/>
+<br/>
+Sincerely,<br/>
+{{ signature }}<br/>
+{% endblock %}

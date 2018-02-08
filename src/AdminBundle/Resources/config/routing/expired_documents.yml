@@ -1,0 +1,11 @@
+admin_expired_document_index:
+    path:     /
+    defaults: { _controller: admin.expired_document_controller:indexAction }
+
+admin_expired_document_filter:
+    path:     /filter
+    defaults: { _controller: admin.expired_document_controller:filterAction }
+
+admin_expired_document_reset:
+    path:     /reset
+    defaults: { _controller: admin.expired_document_controller:resetAction }

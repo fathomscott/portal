@@ -1,0 +1,12 @@
+{% extends '@Admin/form_theme.html.twig' %}
+
+{% block form_row %}
+    <div class="col-md-6 form-group{% if errors|length %} has-error{% endif %}">
+        {{- form_label(form) -}}
+        <div class="col-md-9 col-sm-9">
+            {{- form_errors(form) -}}
+            {{- form_widget(form) -}}
+        </div>
+    </div>
+{% endblock %}
+

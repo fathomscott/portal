@@ -1,0 +1,56 @@
+{% extends '@Admin/layout.html.twig' %}
+
+{% block title %}{{ 'verb.view'|trans }} {{ 'navigation.team.team'|trans }}{% endblock %}
+
+{% block breadcrumb %}
+    <li><a href="{{ path('admin_team_index') }}">{{ 'navigation.team.teams'|trans }}</a></li>
+    <li class="active">{{ 'verb.view'|trans }} {{ 'navigation.team.team'|trans }} </li>
+{% endblock %}
+
+{% block content %}
+    <table id="data-table" class="table ">
+        <tr><td>{{ 'labels.id'|trans }}</td><td>{{ team.id }}</td></tr>
+        <tr><td>{{ 'labels.title'|trans }}</td><td>{{ team.title }}</td></tr>
+        <tr>
+            <td>{{ 'navigation.team_member.members'|trans }}</td>
+            <td>
+                <table class="table m-t-20">
+                    <thead>
+                        <tr>
+                            <th>{{ 'labels.id'|trans }}</th>
+                            <th>{{ 'labels.headshot'|trans }}</th>
+                            <th>{{ 'labels.role'|trans }}</th>
+                            <th>{{ 'labels.full_name'|trans }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for teamMember in team.members %}
+                            <tr>
+                                <td>{{ teamMember.id }}</td>
+                                <td>
+                                    <img height="90" src="{{ teamMember.agent and teamMember.agent.headShotName
+                                    ? vich_uploader_asset(teamMember.agent, 'headShotFile') | imagine_filter('agent_head_shot')
+                                    : asset('images/default_head_shot.png')
+                                    }}" />
+                                </td>
+                                <td>
+                                    {% if teamMember.token %}
+                                        {{ 'navigation.team.invitation_sent'|trans }}
+                                    {% elseif teamMember.teamLeader %}
+                                        {{ 'navigation.team.team_leader'|trans }}
+                                    {% else %}
+                                        {{ 'navigation.team_member.member'|trans }}
+                                    {% endif %}
+                                </td>
+                                <td>{{ teamMember.agent.fullName|default(teamMember.invitationEmail) }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <div class="buttons">
+        <a class="btn btn-info" href="{{ path('admin_team_index') }}">{{ 'navigation.back_to_list'|trans }}</a>
+    </div>
+{% endblock content %}

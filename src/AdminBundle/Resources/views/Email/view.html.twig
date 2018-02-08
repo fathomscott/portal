@@ -1,0 +1,24 @@
+{% extends '@Admin/layout.html.twig' %}
+
+{% block title %}{{ 'verb.view'|trans }} {{ 'navigation.email.email'|trans }}{% endblock %}
+
+{% block breadcrumb %}
+    <li><a href="{{ path('admin_email_index') }}">{{ 'navigation.email.emails'|trans }}</a></li>
+    <li class="active">{{ 'verb.view'|trans }} {{ 'navigation.email.email'|trans }} </li>
+{% endblock %}
+
+{% block content %}
+    <table id="data-table" class="table table-striped dtr-inline">
+        <tr><td>{{ 'labels.id'|trans }}</td><td>{{ email.id }}</td></tr>
+        <tr><td>{{ 'labels.from'|trans }}</td><td>{{ email.from }}</td></tr>
+        <tr><td>{{ 'labels.full_name'|trans }}</td><td>{{ email.to }}</td></tr>
+        <tr><td>{{ 'labels.status'|trans }}</td><td>{{ email.created|date }}</td></tr>
+        <tr><td>{{ 'labels.address'|trans }}</td><td>{{ email.subject }}</td></tr>
+        <tr><td>{{ 'labels.message'|trans }}</td><td>{{ email.body|raw }}</td></tr>
+    </table>
+    <div class="buttons">
+        <a class="btn btn-info" href="{{ path('admin_email_index') }}">{{ 'navigation.back_to_list'|trans }}</a>
+        <a class="btn btn-danger confirm-delete" href="{{ path('admin_email_delete', {'email': email.id}) }}">{{ 'verb.delete'|trans }}</a>
+    </div>
+    {{ include('@Admin/helpers/confirm_modal.html.twig') }}
+{% endblock content %}

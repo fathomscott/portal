@@ -1,0 +1,77 @@
+{% extends '@Admin/layout.html.twig' %}
+
+{% form_theme form '@Admin/form_theme.html.twig' %}
+
+{% block title %}{{ 'verb.edit'|trans }} {{ 'navigation.agent.agent'|trans }}{% endblock %}
+
+{% block breadcrumb %}
+    <li><a href="{{ path('admin_agent_index') }}">{{ 'navigation.agent.agents'|trans }}</a></li>
+    <li class="active">{{ 'navigation.manage'|trans }} {{ 'navigation.agent.agent'|trans }}</li>
+{% endblock %}
+
+{% block content %}
+    {% if not isNew %}
+        {{ include('@Admin/Agent/helpers/menu.html.twig') }}
+	{{ include('@Admin/Agent/helpers/referrals.html.twig') }}
+    {% endif %}
+    {{ form_start(form) }}
+        {% for field in form %}
+            {% if field.vars.name == 'districts' %}
+                <div class="form-group{% if form.agentDistricts.vars.errors|length %} has-error{% endif %}">
+                    {{- form_label(field) -}}
+                    <div class="col-md-6 col-sm-6">
+                        {{- form_errors(form.agentDistricts) -}}
+                        {{- form_widget(field, {'attr': {'class': 'districts'}}) -}}
+
+                        {# render agentDistrict collection #}
+                        <div class="m-t-10 agent-districts-collection" data-prototype="{{ form_widget(form.agentDistricts.vars.prototype)|e('html_attr') }}">
+                            {% for agentDistrict in form.agentDistricts %}
+                                {{ form_widget(agentDistrict) }}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                {{ form_row(field) }}
+            {% endif %}
+        {% endfor %}
+
+        {# buttons #}
+        <div class="buttons col-md-offset-3 m-t-10">
+            <button type="submit" class="btn btn-warning m-r-10">{{ 'verb.submit'|trans }}</button>
+            <a href="{{ path('admin_agent_index') }}" class="btn btn-info">{{ 'navigation.back_to_list'|trans }}</a>
+
+            {% if not isNew %}
+                <a href="{{ path('admin_agent_delete', {'agent': agent.id}) }}" class="btn btn-danger confirm-delete">{{ 'verb.delete'|trans }}</a>
+                {{ include('@Admin/helpers/confirm_modal.html.twig') }}
+            {% endif %}
+        </div>
+    {{ form_end(form) }}
+
+{% endblock content %}
+
+{% block javascript %}
+	<script type="text/javascript" src="{{ asset('js/pages/agent.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/pages/referrals.js') }}"></script>
+	<script>
+		$(document).ready(function() {
+			$('#agent_first_name, #agent_middle_name, #agent_middle_initial, #agent_last_name, #agent_suffix').on('change', function() {
+				var fn = $('#agent_first_name').val();
+				var mn = $('#agent_middle_name').val();
+				var mi = $('#agent_middle_initial').val();
+				var ln = $('#agent_last_name').val();
+				var sf = $('#agent_suffix').val();
+				var legalName = fn + ' ' + (mn != '' ? mn : (mi != '' ? mi+'.' : '')) + ' ' + ln + (sf != '' ? ', '+sf : '');
+				$('#agent_legal_name').val(legalName);
+			});
+			$('#agent_phoneNumber').on('change', function () {
+				var val = $('#agent_phoneNumber').val().replace(/\D/g,'');
+				var ac = val.substring(0,3);
+				var pre = val.substring(3,6);
+				var num = val.substring(6);
+				val = "("+ac+") "+pre+"-"+num;
+				$('#agent_phoneNumber').val(val);
+			});
+		});
+	</script>
+{% endblock javascript %}

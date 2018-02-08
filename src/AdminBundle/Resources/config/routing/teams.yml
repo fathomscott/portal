@@ -1,0 +1,7 @@
+admin_team_index:
+    path:     /
+    defaults: { _controller: admin.team_controller:indexAction }
+
+admin_team_view:
+    path:     /{team}
+    defaults: { _controller: admin.team_controller:viewAction }

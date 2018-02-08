@@ -1,0 +1,28 @@
+BackendBundle\Entity\Email:
+    type: entity
+    table: email
+    repositoryClass: BackendBundle\Repository\EmailRepository
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            generator:
+                strategy: IDENTITY
+        created:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        to:
+            column: recipient
+            type: string
+        from:
+            column: sender
+            type: string
+            length: 255
+        subject:
+            type: string
+            length: 255
+        body:
+            type: text

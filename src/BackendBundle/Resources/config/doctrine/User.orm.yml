@@ -1,0 +1,129 @@
+BackendBundle\Entity\User:
+    type:  entity
+    table: user
+    repositoryClass: BackendBundle\Repository\UserRepository
+    inheritanceType: JOINED
+    discriminatorColumn:
+        name: discr
+        type: string
+        length: 255
+    discriminatorMap:
+        user: User
+        superUser: SuperAdmin
+        admin: Admin
+        agent: Agent
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        email:
+            type: string
+            length: 100
+            unique: true
+            nullable: false
+        password:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+        created:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        salt:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+        status:
+            type: integer
+            nullable: false
+        roles:
+            type:       simple_array
+            nullable:   true
+        accountType:
+            type: string
+            length: 50
+            fixed: false
+            nullable: false
+            column: account_type
+        firstName:
+            type: string
+            length: 100
+            nullable: false
+            column: first_name
+        nickName:
+            type: string
+            length: 100
+            nullable: false
+            column: nick_name
+        middleName:
+            type: string
+            length: 100
+            nullable: false
+            column: middle_name
+        middleInitial:
+            type: string
+            length: 1
+            nullable: false 
+            column: middle_initial
+        lastName:
+            type: string
+            length: 100
+            nullable: false
+            column: last_name
+        suffix:
+            type: string
+            length: 100
+            nullable: false
+            column: suffix
+        confirmationToken:
+            type: text
+            length: 200
+            nullable: true
+            column: confirmation_token
+        expirationAt:
+            type: datetime
+            nullable: true
+            column: expiration_at
+        headShotName:
+            type: string
+            nullable: true
+            column: head_shot_name
+        updatedAt:
+            type: datetime
+            nullable: true
+            column: updated_at
+    oneToOne:
+        subscription:
+            targetEntity: Subscription
+            mappedBy: user
+            cascade: [all]
+    oneToMany:
+        transactions:
+            targetEntity: Transaction
+            mappedBy: user
+            cascade: [all]
+        paymentMethods:
+            targetEntity: PaymentMethod
+            mappedBy: user
+            cascade: [all]
+        referredReferrals:
+            targetEntity: Referral
+            mappedBy: referredUser
+            orphanRemoval: true
+            cascade: [all]
+        referringReferrals:
+            targetEntity: Referral
+            mappedBy: referringUser
+            orphanRemoval: true
+            cascade: [all]
+    manyToMany:
+        dismissedSystemMessages:
+            targetEntity: BackendBundle\Entity\SystemMessage
+            mappedBy: users

@@ -1,0 +1,11 @@
+admin_pending_document_index:
+    path:     /
+    defaults: { _controller: admin.pending_document_controller:indexAction }
+
+admin_pending_document_filter:
+    path:     /filter
+    defaults: { _controller: admin.pending_document_controller:filterAction }
+
+admin_pending_document_reset:
+    path:     /reset
+    defaults: { _controller: admin.pending_document_controller:resetAction }

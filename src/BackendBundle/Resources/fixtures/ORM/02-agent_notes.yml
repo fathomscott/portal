@@ -1,0 +1,6 @@
+BackendBundle\Entity\AgentNote:
+    AgentNote{1..500}:
+        note: <sentence()>
+        public: <numberBetween(0, 1)>
+        agent: "@Agent<numberBetween(1, 100)>"
+        author: "10%? @SuperAdmin : @Agent<numberBetween(1, 10)>"

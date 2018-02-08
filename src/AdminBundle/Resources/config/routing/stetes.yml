@@ -1,0 +1,15 @@
+admin_state_index:
+    path:     /
+    defaults: { _controller: admin.state_controller:indexAction }
+
+admin_state_add:
+    path:     /add
+    defaults: { _controller: admin.state_controller:manageAction }
+
+admin_state_edit:
+    path:     /{state}/edit
+    defaults: { _controller: admin.state_controller:manageAction }
+
+admin_state_delete:
+    path:     /{state}/delete
+    defaults: { _controller: admin.state_controller:deleteAction }

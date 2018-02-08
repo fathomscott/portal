@@ -1,0 +1,142 @@
+services:
+    backend.user_manager:
+        class: BackendBundle\Manager\UserManager
+        arguments:
+            - "@backend.user_repository"
+            - "@backend.security_generator"
+            - "@knp_paginator"
+
+    backend.agent_manager:
+        class: BackendBundle\Manager\AgentManager
+        arguments:
+            - "@backend.agent_repository"
+            - "@backend.security_generator"
+            - "@knp_paginator"
+
+    backend.super_admin_manager:
+        class: BackendBundle\Manager\SuperAdminManager
+        arguments:
+            - "@backend.super_admin_repository"
+            - "@backend.security_generator"
+            - "@knp_paginator"
+
+    backend.admin_manager:
+        class: BackendBundle\Manager\AdminManager
+        arguments:
+            - "@backend.admin_repository"
+            - "@backend.security_generator"
+            - "@knp_paginator"
+
+
+    backend.email_manager:
+        class: BackendBundle\Manager\EmailManager
+        arguments:
+            - "@backend.email_repository"
+            - "@knp_paginator"
+
+    backend.state_manager:
+        class: BackendBundle\Manager\StateManager
+        arguments:
+            - "@backend.state_repository"
+            - "@knp_paginator"
+
+    backend.team_manager:
+        class: BackendBundle\Manager\TeamManager
+        arguments:
+            - "@backend.team_repository"
+            - "@knp_paginator"
+
+    backend.team_member_manager:
+        class: BackendBundle\Manager\TeamMemberManager
+        arguments:
+            - "@backend.team_member_repository"
+            - "@knp_paginator"
+
+    backend.district_manager:
+        class: BackendBundle\Manager\DistrictManager
+        arguments:
+            - "@backend.district_repository"
+            - "@knp_paginator"
+
+    backend.agent_note_manager:
+        class: BackendBundle\Manager\AgentNoteManager
+        arguments:
+            - "@backend.agent_note_repository"
+            - "@knp_paginator"
+
+    backend.plan_manager:
+        class: BackendBundle\Manager\PlanManager
+        arguments:
+            - "@backend.plan_repository"
+            - "@knp_paginator"
+
+    backend.subscription_manager:
+        class: BackendBundle\Manager\SubscriptionManager
+        arguments:
+            - "@backend.subsciption_repository"
+            - "@knp_paginator"
+
+    backend.payment_method_manager:
+        class: BackendBundle\Manager\PaymentMethodManager
+        arguments:
+            - "@backend.payment_method_repository"
+            - "@knp_paginator"
+
+    backend.credit_card_manager:
+        class: BackendBundle\Manager\CreditCardManager
+        arguments:
+            - "@backend.credit_card_repository"
+            - "@knp_paginator"
+
+    backend.transaction_manager:
+        class: BackendBundle\Manager\TransactionManager
+        arguments:
+            - "@backend.transaction_repository"
+            - "@knp_paginator"
+
+    backend.referral_manager:
+        class: BackendBundle\Manager\ReferralManager
+        arguments:
+            - "@backend.referral_repository"
+            - "@knp_paginator"
+
+    backend.license_category_manager:
+        class: BackendBundle\Manager\LicenseCategoryManager
+        arguments:
+            - "@backend.license_category_repository"
+            - "@knp_paginator"
+
+    backend.agent_district_manager:
+        class: BackendBundle\Manager\AgentDistrictManager
+        arguments:
+            - "@backend.agent_district_repository"
+            - "@knp_paginator"
+
+    backend.billing_option_manager:
+        class: BackendBundle\Manager\BillingOptionManager
+        arguments:
+            - "@backend.billing_option_repository"
+            - "@knp_paginator"
+
+    backend.system_message_manager:
+        class: BackendBundle\Manager\SystemMessageManager
+        arguments:
+            - "@backend.system_message_repository"
+            - "@knp_paginator"
+
+    backend.system_default_manager:
+        class: BackendBundle\Manager\SystemDefaultManager
+        arguments:
+            - "@backend.system_default_repository"
+
+    backend.document_option_manager:
+        class: BackendBundle\Manager\DocumentOptionManager
+        arguments:
+            - "@backend.document_option_repository"
+            - "@knp_paginator"
+
+    backend.document_manager:
+        class: BackendBundle\Manager\DocumentManager
+        arguments:
+            - "@backend.document_repository"
+            - "@knp_paginator"

@@ -1,0 +1,47 @@
+{% extends '@Admin/layout.html.twig' %}
+
+{% block title %}{{ 'navigation.team.teams'|trans }}{% endblock %}
+
+{% block breadcrumb %}
+    <li class="active">{{ 'navigation.team.teams'|trans }}</li>
+{% endblock %}
+
+{% block content %}
+    <a class="pull-right btn btn-primary m-b-10" href="{{ path('admin_agent_team_add') }}">+ {{ 'verb.add'|trans }}</a>
+    <table id="data-table" class="table table-striped table-bordered dataTable no-footer dtr-inline list-table">
+        <thead>
+            <tr>
+                <th class="{{ 'a.id'|sort_class }}">{{ knp_pagination_sortable(teams, 'labels.id'|trans(), 'a.id') }}</th>
+                <th class="{{ 'a.title'|sort_class }}">{{ knp_pagination_sortable(teams, 'labels.title'|trans(), 'a.title') }}</th>
+                <th class="{{ 'c.district'|sort_class }}">{{ knp_pagination_sortable(teams, 'navigation.district.district'|trans(), 'c.district') }}</th>
+                <th>{{ 'navigation.team_member.member'|trans }}</th>
+               <th>{{ 'labels.actions'|trans }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for team in teams %}
+                <tr>
+                    <td>{{ team.id }}</td>
+                    <td>{{ team.title }}</td>
+                    <td>{{ team.district.name }}</td>
+                    <td>{{ team.members|length }}</td>
+                    <td>
+                        <div class="btn-group">
+                            <a href="javascript:;" data-toggle="dropdown" class="btn btn-sm btn-info dropdown-toggle" aria-expanded="false">
+                                {{ 'labels.actions'|trans }} <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                {% if team.isTeamLeader(app.user) %}
+                                    <li><a href="{{ path('admin_agent_team_edit', {'team' : team.id}) }}">{{ 'verb.edit'|trans }}</a></li>
+                                {% endif %}
+                                <li><a href="{{ path('admin_agent_team_member_index', {'team' : team.id}) }}">{{ 'navigation.team_member.members'|trans }}</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="col-md-5 media-middle"><p><strong>{{ 'labels.total_results'| trans }}:</strong> {{ total }}</p></div>
+    <div class="col-md-7 text-right">{{ knp_pagination_render(teams) }}</div>
+{% endblock content %}

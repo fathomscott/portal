@@ -1,0 +1,42 @@
+{% extends '@Admin/layout.html.twig' %}
+
+{% block title %}{{ 'navigation.contact'|trans }}{% endblock %}
+
+{% block breadcrumb %}
+    <li class="active">{{ 'navigation.contact'|trans }}</li>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6">
+            <div><strong>Corporate Address:</strong></div>
+            <div style="margin:0px 20px 20px 20px;">
+		24800 Chrisanta Dr., Suite 140<br>
+		Mission Viejo, California<br>
+		92691
+	    </div>
+            <div><strong>Agent Services</strong></div>
+            <div style="margin:0px 20px 20px 20px;">
+		<strong>Phone:</strong> <a href="tel:877-661-1977">877-661-1977</a> Option 1<br>
+            	<strong>Email:</strong> <a href="mailto:agentservices@fathomrealty.com">agentservices@fathomrealty.com</a>
+	   </div>
+            <div><strong>Onboarding</strong></div>
+            <div style="margin:0px 20px 20px 20px;">
+		<strong>Phone:</strong> <a href="tel:877-661-1977">877-661-1977</a> Option 2<br>
+            	<strong>Email:</strong> <a href="mailto:onboarding@fathomrealty.com">onboarding@fathomrealty.com</a>
+	   </div>
+            <div><strong>Accounting</strong></div>
+            <div style="margin:0px 20px 20px 20px;">
+		<strong>Phone:</strong> <a href="tel:877-661-1977">877-661-1977</a> Option 3<br>
+            	<strong>Email:</strong> <a href="mailto:accounting@fathomrealty.com">accounting@fathomrealty.com</a>
+	   </div>
+            <div><strong>Compliance</strong></div>
+            <div style="margin:0px 20px 20px 20px;">
+		<strong>Phone:</strong> <a href="tel:877-661-1977">877-661-1977</a> Option 4<br>
+            	<strong>Email:</strong> <a href="mailto:compliance@fathomrealty.com">compliance@fathomrealty.com</a>
+	   </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

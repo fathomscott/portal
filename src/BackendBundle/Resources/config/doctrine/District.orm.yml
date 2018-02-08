@@ -1,0 +1,59 @@
+BackendBundle\Entity\District:
+    type: entity
+    table: district
+    repositoryClass: BackendBundle\Repository\DistrictRepository
+    id:
+        id:
+            type: integer
+            scale: 0
+            length: null
+            unique: false
+            nullable: false
+            precision: 0
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            length: 255
+            nullable: false
+        MLSDuesRequired:
+            type: boolean
+            nullable: true
+        MLSDuesType:
+            type: integer
+            length: 2
+            nullable: true
+        MLSFee:
+            type: decimal
+            scale: 2
+            length: null
+            unique: false
+            precision: 0
+            column: mls_fee
+            nullable: true
+    manyToOne:
+        state:
+            targetEntity: BackendBundle\Entity\State
+            inversedBy: districts
+            joinColumn:
+                name: state_id
+                referencedColumnName: id
+                onDelete: cascade
+    oneToMany:
+        agentDistricts:
+            targetEntity: BackendBundle\Entity\AgentDistrict
+            mappedBy: district
+            orphanRemoval: remove
+            cascade: [all]
+        teams:
+            targetEntity: BackendBundle\Entity\Team
+            mappedBy: district
+            cascade: [all]
+        transactions:
+            targetEntity: BackendBundle\Entity\Transaction
+            mappedBy: district
+            cascade: [all]

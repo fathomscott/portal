@@ -1,0 +1,9 @@
+BackendBundle\Entity\Transaction:
+    Transaction{1..500}:
+        district: "@DistrictWithVariableMlsDues<numberBetween(101, 150)>"
+        user: "<randomCollectionElement(@self->district, 'agentDistricts')->getAgent()>"
+        paymentMethod: "<randomCollectionElement(@self->user, 'paymentMethods')>"
+        created: <dateTimeBetween('-3 weeks', 'now')>
+        amount: 0
+        status: 1 #pending status
+        notes: <sentence()>

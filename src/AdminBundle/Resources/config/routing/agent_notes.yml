@@ -1,0 +1,16 @@
+admin_agent_note_index:
+    path:     /
+    defaults: { _controller: admin.agent_note_controller:indexAction }
+
+admin_agent_note_add:
+    path:     /add
+    defaults: { _controller: admin.agent_note_controller:addAction }
+
+admin_agent_note_edit:
+    path:     /edit/{agentNote}
+    defaults: { _controller: admin.agent_note_controller:manageAction }
+
+admin_agent_note_delete:
+    path:     /{agentNote}/delete
+    defaults: { _controller: admin.agent_note_controller:deleteAction }
+    requirements: { agentNote: \d+ }

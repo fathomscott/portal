@@ -1,0 +1,79 @@
+{% extends '@Admin/layout.html.twig' %}
+
+{% form_theme form '@Admin/form_theme.html.twig' %}
+
+{% block title %}{{ 'navigation.profile.edit'|trans }}{% endblock %}
+
+{% block breadcrumb %}
+    <li class="active">{{ 'navigation.profile.edit'|trans }}</li>
+{% endblock %}
+
+{% block content %}
+    {{ form_start(form) }}
+        <div class="form-group">
+            {{ form_label(form.headshotFile) }}
+            <div class="col-md-6">
+                {{ form_widget(form.headshotFile, {'id': 'imageFileInput'}) }}
+                {{ form_errors(form.headshotFile) }}
+                {{ form_widget(form.cropImageData, {'id': 'cropImageData'}) }}
+
+                <div class="m-t-15">
+                    <img id="savingImage"
+                        {% if form.vars.value is not null and form.vars.value.headShotName is not null %}
+                            src="{{ vich_uploader_asset(agent, 'headShotFile') }}"
+                            class="img-thumbnail "
+                        {% else %}
+                            src="{{ asset('images/default_head_shot.png') }}"
+                            class="img-thumbnail "
+                        {% endif %}
+                    />
+                </div>
+                <div class="btn-group btn-group-crop pull-right{% if form.vars.value is null or form.vars.value.headshotName is null %} hidden{% endif %}">
+                    <button id="savingImageCrop" type="button" class="btn btn-primary">
+                        <span class="icon icon-crop"></span>
+                        {{ 'labels.crop_image'|trans }}
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        {% for field in form %}
+            {{ form_row(field) }}
+        {% endfor %}
+
+        {# buttons #}
+        <div class="buttons col-md-offset-3 m-t-10">
+            <button type="submit" class="btn btn-warning m-r-10">{{ 'verb.submit'|trans }}</button>
+            <a href="{{ path('admin_dashboard') }}" class="btn btn-info">{{ 'navigation.back_to_dashboard'|trans }}</a>
+        </div>
+   {{ form_end(form) }}
+
+    <div class="modal fade" id="imageDialogForm" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel">{{ 'labels.crop_image_title'|trans }}</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="long-modal">
+                        <img
+                                src="{{ asset('images/default_head_shot.png') }}"
+                                class="img-thumbnail"
+                                id="imageDialogImage"
+                        >
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">{{ 'labels.crop_image'|trans }}</button>
+                    <a href="#" class="btn btn-sm btn-white" data-dismiss="modal">{{ 'verb.close'|trans }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block javascript %}
+    <script type="text/javascript" src="{{ asset('js/pages/agent_profile.js') }}"></script>
+{% endblock %}

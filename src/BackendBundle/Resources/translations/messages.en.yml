@@ -1,0 +1,1220 @@
+general:
+    company_name: Fathom Realty
+    system_name: Subscription Tool
+    403: Forbidden
+    404: Not Found
+    500: Internal Server Error
+
+success:
+    user:
+        manage: Your Profile has been saved.
+        delete: This User has been deleted.
+        register: You have registered successfully.
+    plan:
+        manage: Your Plan has been saved.
+        delete: Your Plan has been deleted.
+    password:
+        manage: Your Password has been saved.
+        reset_request: Please check your email and follow the provided instructions to reset your password.
+        password_reset: Your password has been successfully reset.
+    credit_card:
+        manage: Your Credit Card has been saved.
+        delete: Your Credit Card has been deleted.
+        on_file: 'You currently have a credit card on file. The last four digits are: %lastFour%'
+        agent_on_file: 'This Agent currently has a credit card on file. The last four digits are: %lastFour%'
+    transaction:
+        manage: Your Transaction has been saved.
+        delete: Your Transaction has been deleted.
+        refund: This Transaction has been refunded.
+    subscription:
+        manage: Your Subscription has been saved.
+        downgrade: Your Subscription will automatically be downgraded upon your next billing date (%dueDate%).
+        upgrade: Your Subscription has been upgraded! Your credit card was billed $%amount% and your new due date is %dueDate%.
+        billed: Your Subscription has been billed successfully.
+    miracle_mortgage:
+        manage: Your Miracle Mortgage has been saved.
+        delete: Your Miracle Mortgage has been deleted.
+        submit: You have successfully nominated this hero for a Miracle Mortgage.
+    lead:
+        manage: Your Lead has been saved.
+        delete: Your Lead has been deleted.
+        accept: You have successfully Accepted this Lead.
+        reject: You have successfully Rejected this Lead.
+    hero:
+        register: You have registered successfully for a Hero account.
+        manage: Your Hero has been saved.
+        delete: Your Hero has been deleted.
+        activate: You have successfully activated your Hero account.
+    agent:
+        register: You have registered successfully for an Agent account.
+        manage: Your Agent has been saved.
+        delete: Your Agent has been deleted.
+        activation: Activation email has been sent.
+        charge: 'You have successfully charged $%amount%.'
+    agent_territory:
+        manage: Your Agent Territory has been saved.
+        delete: Your Agent Territory has been deleted.
+    location_contact:
+        manage: Your Lead has been saved.
+        delete: Your Lead has been deleted.
+    business:
+        register: You have registered successfully for a Business account.
+        manage: Your Business has been saved.
+        delete: Your Business has been deleted.
+    staff:
+        manage: Your Staff has been saved.
+        delete: Your Staff has been deleted.
+    occupation:
+        manage: Your Occupation has been saved.
+        delete: Your Occupation has been deleted.
+    branch:
+        manage: Your Branch has been saved.
+        delete: Your Branch has been deleted.
+    coupon:
+        manage: Your Coupon has been saved.
+        delete: Your Coupon has been deleted.
+    whitelist:
+        manage: Your Whitelisting has been saved.
+        delete: Your Whitelisting has been deleted.
+    vendor_whitelist:
+        manage: Your Vendor Whitelisting has been saved.
+        delete: Your Vendor Whitelisting has been deleted.
+    trial_whitelist:
+        manage: Your Trial Whitelisting has been saved.
+        delete: Your Trial Whitelisting has been deleted.
+    plan:
+        manage: Your Plan has been saved.
+        delete: Your Plan has been deleted.
+    country:
+        manage: Your Country has been saved.
+        delete: Your Country has been deleted.
+    county:
+        manage: Your County has been saved.
+        delete: Your County has been deleted.
+    city:
+        manage: Your City has been saved.
+        delete: Your City has been deleted.
+    state:
+        manage: Your State has been saved.
+        delete: Your State has been deleted.
+    zip:
+        manage: Your Zip has been saved.
+        delete: Your Zip has been deleted.
+    credit_card:
+        manage: Your Credit Card has been saved.
+        delete: Your Credit Card has been deleted.
+    category:
+        manage: Your Category has been saved.
+        delete: Your Category has been deleted.
+    transaction:
+        manage: Your Transaction has been saved.
+        delete: Your Transaction has been deleted.
+    territory:
+        manage: Your Territory has been saved.
+        delete: Your Territory has been deleted.
+    location:
+        first_location: You have successfully created your first Location. Please create an Ad to complete your account activation.
+        manage: Your Location has been saved.
+        delete: Your Location has been deleted.
+    ad:
+        manage: Your Ad has been saved.
+        delete: Your Ad has been deleted.
+        status: The Status of this Ad has been updated.
+        business_notified: The Business that owns this Ad has been notified.
+    email:
+        manage: Your Email has been saved.
+        delete: Your Email has been deleted.
+    testimonial:
+        manage: Your Testimonial has been saved.
+        delete: Your Testimonial has been deleted.
+    system_default:
+        manage: Your System Defaults have been saved.
+    image_vault:
+        manage: Your Image has been saved.
+        delete: Your Image has been deleted.
+    profile:
+        manage: Your Profile has been saved.
+        delete: Your Profile has been deleted.
+    ticket:
+        manage: Your Support Ticket has been saved.
+        delete: Your Support Ticket has been deleted.
+        submit: Your Support ticket has been submitted successfully.
+    contact_agent: Your message was sent successfully.
+    change_password:
+        manage: Your Password has been changed successfully.
+    agent_change_password:
+        manage: Agent Password has been changed successfully.
+    agent_change:
+        notification: You have successfully alerted the Agent(s) about their new Lead Assignment.
+    ach:
+        manage: Your Bank Account has been saved.
+        delete: Your Bank Account has been deleted.
+        none_on_file: You do not currently have a bank account on file. Please add one below.
+        on_file: 'You currently have a bank account on file. The last four digits are: %lastFour%'
+    terms:
+        accept: You have successfully accepted our terms of service.
+    lead_note:
+        manage: Your Notes have been saved.
+        delete: Your Notes have been deleted.
+    home_value_report:
+        manage: Your Home Value Report has been saved.
+        delete: Your Home Value Report has been deleted.
+        register: You have successfully requested a Home Value Report.
+    email_alert_report:
+        manage: Your Email Alert Report has been saved.
+        delete: Your Email Alert Report has been deleted.
+        register: You have successfully requested an Email Alert Report.
+    team:
+        manage: Your Team has been saved.
+        delete: Your Team has been deleted.
+    team_member:
+        delete: Team Member has been deleted
+        invite: Team Member has been invited
+    district:
+        manage: Your Market has been saved.
+        delete: This Market has been deleted.
+    agent_note:
+        manage: This Note has been saved.
+        delete: This Note has been deleted.
+    license_category:
+        manage: Your License Category has been saved.
+        delete: Your License Category has been deleted.
+    agent_plan:
+        manage: Your Plan has been changed.
+    billing_option:
+        manage: Your Billing Option has been saved.
+        delete: Your Billing Option has been deleted.
+    system_message:
+        manage: Your System Message has been saved.
+        delete: Your System Message has been deleted.
+    document_option:
+        manage: Your Document Option has been saved.
+        delete: Your Document Option has been deleted.
+    agent_document:
+        manage: Your Document has been saved.
+        delete: Your Document (%docNumber%) has been deleted.
+
+error:
+    access_denied: Access Denied.
+    plan:
+        none: No Plans have been found.
+    password:
+        old_password: The Old Password you entered is incorrect.
+        mismatch: The Passwords you entered did not match.
+    credit_card:
+        none: No Credit Cards have been found.
+        none_on_file: You do not currently have a credit card on file.
+        subscription_without_card: You cannot modify your subscription until you have added a credit card to the system.
+    transaction:
+        none: No Transactions have been found.
+    user:
+        none: No Users have been found.
+        email_not_exists: The email address you entered does not exist. Please check and try again.
+        token_not_exists: The provided token is invalid or expired.
+    subscription:
+        none: No Subscriptions have been found.
+        business_pending: Your Subscription is currently Pending. Please select a Plan below.
+        payment_method: Your Subscription is expired. Please add Credit Card.
+    miracle_mortgage:
+        none: No Miracle Mortgages have been found.
+    hero:
+        none: No Heroes have been found.
+        pending: Your Hero account is currently pending. Please complete the form below to activate your account.
+    agent:
+        none: No Agents have been found.
+        agentDistricts:
+            more_than_one: You are trying to add "%district%" market more than one time.
+            has_district_director: The "%district%" district already has district director.
+        charge: Amount is not valid. Min > $0.5, Max < $10000
+        manage:
+            email_exists: The email (%email%) is already in-use on %name%'s account.
+    agent_territory:
+        none: No Agent Territories have been found.
+    business:
+        none: No Businesses have been found.
+    staff:
+        none: No Staffers have been found.
+    whitelist:
+        none: No Whitelistings have been found.
+    vendor_whitelist:
+        none: No Vendor Whitelistings have been found.
+    trial_whitelist:
+        none: No Trial Whitelistings have been found.
+    occupation:
+        none: No Occupations have been found.
+    branch:
+        none: No Branches have been found.
+    coupon:
+        none: No Coupons have been found.
+    plan:
+        none: No Plans have been found.
+    country:
+        none: No Countries have been found.
+    county:
+        none: No Counties have been found.
+    city:
+        none: No Cities have been found.
+    state:
+        none: No States have been found.
+    credit_card:
+        none: No Credit Cards have been found.
+    category:
+        none: No Categories have been found.
+    transaction:
+        none: No Transactions have been found.
+    territory:
+        none: No Territories have been found.
+    location:
+        none: No Locations have been found.
+        add_one: No Locations or Territories have been found. Please add one to continue.
+    ad:
+        none: No Ads have been found.
+        add_one: No Ads have been found. Please add one to continue.
+        form_invalid: Form is not valid
+    email:
+        none: No Emails have been found.
+    testimonial:
+        none: No Testimonials have been found.
+    lead:
+        none: No Leads have been found.
+    image_vault:
+        none: No Images have been found.
+    referral:
+        none: No Referrals have been found.
+    ticket:
+        none: No Support Tickets have been found.
+    lead_history:
+        none: No Lead History Events have been found.
+    payment_method:
+        agent: Please add your credit card information in order to get started.
+        business: Please add your credit card information in order to get started. You will not be billed until your first ad goes live.
+        no_terminal_pin: This Agent isn't assocaited with any Market
+        agent_no_terminal_pin: You aren't assocaited with any Market
+    location_contact:
+        none: No Leads have been found.
+    terms:
+        unaccepted: You must accept the Terms of Service before continuing.
+    lead_note:
+        none: No Notes have been found.
+    home_value_report:
+        none: No Home Value Reports have been found.
+    email_alert_report:
+        none: No Email Alert Reports have been found.
+    commissions_pending:
+        none: No Pending Commissions have been found.
+    commissions_received:
+        none: No Received Commissions have been found.
+    savings:
+        none: We do not currently have any businesses in your area that match your search. Please check back later.
+    login:
+        none: No Logins have been found.
+    unknown_error: Unknown error.
+
+verb:
+    add: Add
+    create: Create
+    edit: Edit
+    view: View
+    delete: Delete
+    filter: Filter
+    reset: Reset
+    list: List
+    submit: Submit
+    cancel: Cancel
+    export: Export
+    impersonate: Login As
+    accept: Accept
+    reject: Reject
+    generate_link: Generate Link
+    view_all: View All
+    warning: Warning
+    important: Important
+    close: Close
+    change_password: Change Password
+    preview: Preview
+    download: Download
+    charge: Charge
+    refund: Refund
+
+security:
+    login:
+        username: Email Address
+        password: Password
+        remember_me: Remember Me
+        submit: Submit
+        forgot_password: Forgot Password?
+        forgot_password_instructions: We'll email you instructions on how to reset your password.
+        forgot_password_error: The email address you entered does not exist. Please try again.
+        reset_password: Reset Password
+        reset_password_instructions: Enter a new password below twice to reset your password.
+
+navigation:
+    navigation: Navigation
+    home: Home
+    features: Features
+    faq: FAQ
+    pricing: Pricing
+    contact: Contact
+    login: Login
+    dashboard: Dashboard
+    logout: Logout
+    log_out: Log Out
+    messages: Messages
+    plan:
+        plan: Plan
+        plans: Plans
+        view: View Plans
+        add: Add New Plan
+        edit: Edit Plan
+    companies:
+        companies: Companies
+    account: Account
+    profile:
+        profile: Profile
+        settings: Profile Settings
+        edit: Edit Profile
+    configuration:
+        configuration: Configuration
+    change_password: Change Password
+    reset_password: Reset Password
+    notifications: Notifications
+    login_as_user: Login as User
+    back_to_admin: Back to Admin
+    back_to_dashboard: Back to Dashboard
+    manage: Manage
+    subscription:
+        subscription: Subscription
+        subscriptions: Subscriptions
+        edit: Edit Subscription
+    transactions:
+        transactions: Transactions
+        view: View Transactions
+    users:
+        users: Users
+        view: View Users
+    payment_method:
+        payment_method: Payment Method
+        edit: Edit Payment Method
+    credit_card:
+        credit_card: Credit Card
+        edit: Edit Credit Card
+    back_to_list: Back to List
+    back_to_login: Back to Login
+    create_an_account: Create an Account!
+    social_networks:
+        social_networks: Social Networks
+        manage: Manage Social Networks
+    referrals:
+        affiliate_referrals: Affiliate Referrals
+        referrals: Referrals
+    subscriptions:
+        overdue: Overdue Subscriptions
+        subscriptions: Subscriptions
+        pending: Pending Subscriptions
+        renewing: Renewing Subscriptions
+    miracle_mortgage:
+        miracle_mortgage: Miracle Mortgage
+        edit: Edit Miracle Mortgage
+    hero:
+        hero: Hero
+        heroes: Heroes
+        edit: Edit Hero
+    agent:
+        agent: Agent
+        agents: Agents
+        edit: Edit Agent
+        subscription: Subscription
+        landing_page_traffic: Landing Page Traffic of "%agent%"
+    agent_territory:
+        territory: Agent Territory
+        territories: Agent Territories
+        edit: Edit Agent Territory
+    lead_note:
+        lead_note: Note
+        lead_notes: Notes
+        edit: Edit Notes
+    business:
+        business: Business
+        businesses: Businesses
+        edit: Edit Business
+        subscription: Subscription
+    staff:
+        staff: Staff
+        staffers: Staffers
+        create: Create Staff
+        edit: Edit Staff
+    documentation: Documentation
+    reports:
+        reports: Reports
+        mail_history: Mail History
+        transactions: Transactions
+        referrals: Referrals
+        date_closed: Date Closed
+        estimated_closing_date: Estimated Closing Date
+        lead_assignment_history: Lead Assignment History
+        commissions_received: Commissions Received
+        commissions_pending: Commissions Pending
+    lead:
+        lead: Lead
+        leads: Leads
+        edit: Edit Lead
+        history: Lead History
+        change_agent: Change Agent
+        recent: Recent Leads
+        assignment_history: Lead Assignment History
+    settings:
+        settings: Settings
+        system_defaults: System Defaults
+        categories: Categories
+        domain_whitelist: Domain Whitelist
+        vendor_whitelist: Vendor Whitelist
+        trial_whitelist: Trial Whitelist
+        occupations: Occupations
+        coupons: Coupons
+        staff: Staff
+        plans: Plans
+        countries: Countries
+        states: States
+        counties: Counties
+        branches: Branches
+        cities: Cities
+    occupation:
+        occupation: Occupation
+        occupations: Occupations
+        edit: Edit Occupation
+    branch:
+        branch: Branch
+        branches: Branches
+        edit: Edit Branches
+    coupon:
+        coupon: Coupon
+        coupons: Coupons
+        edit: Edit Coupon
+    whitelist:
+        whitelist: Whitelist
+        whitelisting: Whitelisting
+        whitelistings: Whitelistings
+        edit: Edit Whitelisting
+    vendor_whitelist:
+        vendor_whitelist: Vendor Whitelist
+        vendor_whitelisting: Vendor Whitelisting
+        vendor_whitelistings: Vendor Whitelistings
+        edit: Edit Vendor Whitelisting
+    trial_whitelist:
+        trial_whitelist: Trial Whitelist
+        trial_whitelisting: Trial Whitelisting
+        trial_whitelistings: Trial Whitelistings
+        edit: Edit Trial Whitelisting
+    country:
+        country: Country
+        countries: Countries
+        edit: Edit Country
+    county:
+        county: County
+        counties: Counties
+        edit: Edit County
+    city:
+        city: City
+        cities: Cities
+        edit: Edit City
+    state:
+        state: State
+        states: States
+        edit: Edit State
+    team:
+        team: Team
+        teams: Teams
+        team_leader: Team Leader
+        invitation_sent: Invitation Sent
+    team_member:
+        member: Team Member
+        members: Team Members
+        invite: Invite new Team Member
+    credit_card:
+        credit_card: Credit Card
+        edit: Edit Credit Card
+    my_account: My Account
+    resources:
+        resources: Resources
+        referral_link_generator: Referral Link Generator
+        downloads: Downloads
+        banner_ads: Banner Ads
+        referrals: Referrals
+        marketing_materials: Marketing Materials
+        vistaprint: VistaPrint
+    billing:
+        billing: Billing
+    territory:
+        territory: Territory
+        territories: Territories
+    location:
+        location: Location
+        locations: Locations
+        locations_territories: Locations/Territories
+    ad:
+        ad: Ad
+        ads: Ads
+        pending_ads: Pending Ads
+    favorite:
+        favorite: Favorite
+        favorites: Favorites
+    category:
+        category: Category
+        categories: Categories
+        edit: Edit Category
+    transaction:
+        transaction: Transaction
+        transactions: Transactions
+        billing_history: Billing History
+        edit: Edit Transaction
+    email:
+        email: Email
+        emails: Emails
+    testimonial:
+        testimonial: Testimonial
+        testimonials: Testimonials
+        edit: Edit Testimonial
+        my_testimonial: My Testimonial
+    system_default:
+        system_defaults: System Defaults
+    image_vault:
+        image_vault: Image Vault
+        images: Images
+        edit: Edit Image
+    referral:
+        referral: Referral
+        referrals: Referrals
+    forgot_password: Forgot Password
+    ticket:
+        ticket: Support Ticket
+        tickets: Support Tickets
+        edit: Edit Support Ticket
+    location_contact:
+        leads: Leads
+    home_value_report:
+        home_value_report: Home Value Report
+        home_value_reports: Home Value Reports
+        edit: Edit Home Value Report
+    email_alert_report:
+        email_alert_report: Email Alert Report
+        email_alert_reports: Email Alert Reports
+        edit: Edit Email Alert Report
+    statistics:
+        statistics: Statistics
+    login_history: Login History
+    district:
+        districts: Markets
+        district: Market
+    license_category:
+        license_category: License Category
+        license_categories: License Categories
+    billing_option:
+        billing_option: Billing Option
+        billing_options: Billing Option
+    system_message:
+        system_message: System Message
+        system_messages: System Messages
+    third_party_links:
+        third_party_links: Third Party Links
+        agent_crm_website_rew: Agent CRM &Website REW
+        e_endorsements: eEndorsements
+        email_fantom_web_email: Email/FathomWebmail
+        my_lingle_propery_website: My Single Property Website
+        transaction_manager_back_agent: Transaction Management / BackAgent
+        video_training_on_demand: Video Training On Demand /David Knox
+        knowlage_base_all_things_fantom: Knowledge Base/All Things Fathom - Fathom Wiki
+    document_option:
+        document_option: Document Option
+        document_options: Document Options
+    document:
+        document: Document
+        documents: Documents
+    pending_transaction:
+        pending_transactions: Pending Transactions
+    contact: Contact
+    terms:
+        terms: Terms
+        privacy_policy: Privacy Policy
+        refund_policy: Refund Policy
+
+labels:
+    id: ID
+    dashboard: Dashboard
+    copyright: Copyright
+    name: Name
+    email: Email
+    owner: Owner
+    actions: Actions
+    task: Task
+    plan: Plan
+    coupon: Coupon
+    company: Company
+    details: Details
+    monthly_fee: Monthly Fee
+    monthly_price: Monthly Price
+    quarterly_price: Quarterly Price
+    semi_annual_price: Semi Annual Price
+    annual_price: Annual Price
+    group: Group
+    first_name: First Name
+    nick_name: Nick Name
+    middle_name: Middle Name
+    middle_initial: Middle Initial
+    last_name: Last Name
+    suffix: Suffix
+    all_names: All Names
+    old_password: Old Password
+    new_password: New Password
+    new_password_confirm: New Password Confirm
+    legal_name: Legal Name
+    address: Street
+    zip: Zip Code
+    message: Message
+    client: Client
+    credit_card: Credit Card
+    nickname: Nickname
+    title: Title
+    url: URL
+    subscription: Subscription
+    payment_method: Payment Method
+    credit_card: Credit Card
+    transaction: Transaction
+    user: User
+    active: Active
+    inactive: Inactive
+    pending: Pending
+    valid: Valid
+    expired: Expired
+    deleted: <span style="color:red;">Deleted</span>
+    disabled: Disabled
+    approved: Approved
+    declined: Declined
+    cancelled: Cancelled
+    expired: Expired
+    dead: Dead
+    status: Status
+    date_added: Date Added
+    full_name: Full Name
+    amount: Amount
+    description: Description
+    due_date: Due Date
+    last_attempt: Last Attempt
+    dont_have_an_account: Don't have an account?
+    name_on_card: Name on Card
+    card_number: Card Number
+    cvv: CVV
+    expiration_month: Expiration Month (MM)
+    expiration_year: Expiration Year (YY)
+    unlimited: Unlimited
+    no: No
+    yes: Yes
+    register: Register
+    agree_to_terms: Agree to <a href="#" target="_new">Terms</a>
+    downgrade: Downgrade
+    upgrade: Upgrade
+    paid: Paid
+    http: http://
+    balance: Balance
+    never: Never
+    lead: Lead
+    associated_lead: Associated Lead
+    hero: Hero
+    occupation: Occupation
+    coupon: Coupon
+    coupons: Coupons
+    whitelist: Whitelist
+    agent: Agent
+    agent_note: Agent Note
+    agent_notes: Agent Notes
+    preferred_agent: Preferred Agent
+    business: Business
+    created: Created
+    hero_full_name: Hero Full Name
+    your_first_name: Your First Name
+    your_last_name: Your Last Name
+    your_email: Your Email
+    your_phone_number: Your Phone Number
+    hero_first_name: Hero's First Name
+    hero_last_name: Hero's Last Name
+    hero_email: Hero's Email
+    hero_phone_number: Hero's Phone Number
+    nomination_details: Nomination Details
+    miracle_mortgage: Miracle Mortgage
+    whitelisting: Whitelisting
+    country: Country
+    code: Code
+    county: County
+    city: City
+    state: State
+    credit_card: Credit Card
+    business_dashboard: Business Dashboard
+    agent_dashboard: Agent Dashboard
+    hero_dashboard: Hero Dashboard
+    affiliate_name: Personal HTH Website
+    phone_number: Phone Number
+    personal_email: Personal Email
+    birth_date: Birth Date
+    date_joined: Date Joined
+    social_security_number: Social Security Number
+    employer_id_number: Employer ID Number
+    past_firm: Past Firm
+    market_center_name: Market Center Name
+    real_estate_license_expiration_date: Real Estate License Expiration Date
+    insurance_expiration_date: Insurance Expiration Date
+    is_mentor: Is Mentor
+    is_mentee: Is Mentee
+    brokerage_name: Brokerage Name
+    license_number: License Number
+    web_site_url: Your Website
+    business_name: Business Name
+    business_email: Business Email
+    business_phone_number: Business Phone Number
+    occupation_email: Occupation Email
+    favorite: Favorite
+    favorites: Favorites
+    category: Category
+    all_categories: All Categories
+    categories: Categories
+    color: Color
+    public: Public
+    private: Private
+    visibility: Visibility
+    units_included: Units Included
+    base_fee: Base Fee
+    additional_unit_cost: Additional Unit Cost
+    waive_base_fee: Waive Base Fee
+    transaction: Transaction
+    transactions: Transactions
+    landing_page_traffic: Landing Page Traffic
+    created_from: Created From
+    created_to: Created To
+    territory: Territory
+    territories: Territories
+    location: Location
+    locations: Locations
+    ad: Ad
+    ads: Ads
+    category_name: Category Name
+    about_us: About Us
+    real_estate_benefits: Real Estate Benefits
+    real_estate_benefits_optional: Real Estate Benefits (OPTIONAL)
+    business_benefits: Business Benefits
+    contact_us: Contact Us
+    hero_benefits: Hero Benefits
+    mortgage_benefits: Mortgage Benefits
+    partner_with_us: Partner With Us
+    privacy_policy: Privacy Policy
+    terms_and_conditions: Terms and Conditions
+    testimonial: Testimonial
+    testimonials: Testimonials
+    address: Street
+    address2: Address 2
+    city: City
+    zip_code: ZIP Code
+    to: To
+    from: From
+    subject: Subject
+    body: Body
+    pending: Pending
+    priority: Priority
+    job_title: Job Title
+    plan_type: Plan Type
+    unit_type: Unit Type
+    real_estate_agent: Real Estate Agent
+    mortgage_agent: Loan Officer
+    bypass_billing: Bypass Billing
+    date_added_to: Date Added (To)
+    date_added_from: Date Added (From)
+    entry: Entry
+    staff: Staff
+    staffers: Staffers
+    roles: Roles
+    super_admin: Super Admin
+    passwords_do_not_match: Your passwords do not match.
+    password: Password
+    password_confirm: Confirm Password
+    cc_surcharge: CC Surcharge %
+    system_defaults: System Defaults
+    lead_type: Lead Type
+    real_estate: Real Estate
+    mortgage: Mortgage
+    image_vault: Image Vault
+    image: Image
+    referral_discount: Referral Discount ($)
+    grace_period: Grace Period (Days)
+    bypassed_grace_period: Bypassed Grace Period (Days)
+    ad_image_width: Ad Image Width (Pixels)
+    ad_image_height: Ad Image Height (Pixels)
+    agents_partner_with_us: 'Agents: Partner With Us'
+    businesses_partner_with_us: 'Businesses: Partner With Us'
+    referrals: Referrals
+    referral_link: Referral link
+    due_date_from: Due Date (From)
+    due_date_to: Due Date (To)
+    current_password: Current Password
+    edit_profile: Edit Profile
+    comments: Comments
+    become_certified_agent: Become A Certified Agent
+    become_preferred_business: Become A Preferred Business
+    become_member: Become A Member
+    primary_city_name: Primary City Name
+    contact_first_name: Contact First Name
+    contact_last_name: Contact Last Name
+    your_digital_id: Your Digital ID
+    favorite_savings: Favorite Savings
+    previously_claimed: Previously Claimed
+    your_profile: Your Profile
+    change_password: Change Password
+    update_profile: Update Profile
+    ticket: Support Ticket
+    tickets: Support Tickets
+    nomination_letter: Nomination Letter
+    miracle_mortgage_mime_types: You must provide a PDF, Word, Rich Text, or Text Document.
+    no_file_uploaded: No File Uploaded
+    claims: Claims
+    hero_id_card: Hero ID Card
+    my_testimonial: My Testimonial
+    assignment_accepted: Assignment Accepted
+    affiliate_cookie_duration: Affiliate Cookie Duration
+    assigned_to: Assigned To
+    assigned_at: Assigned At
+    reject: Reject
+    accepted: Accepted
+    updated: Updated
+    estimated_closing_date: Estimated Closing Date
+    date_closed: Date Closed
+    city_of_interest: City of Interest
+    property_address: Property Address
+    property_city: Property City
+    property_state: Property State
+    refinance: Refinance
+    assigned: Assigned
+    unassigned: Unassigned
+    history: History
+    type: Type
+    agent_territory: Agent Territory
+    agent_territories: Agent Territories
+    agent_name: Agent Name
+    real_estate_agents_per_territory: Real Estate Agents per Territory
+    mortgage_agents_per_territory: Loan Officers per Territory
+    agent_type: Agent Type
+    change_agent_notification: Change Agent Notification
+    change_agent_notification_body: Change Agent Notification Body
+    change_ad_status_notification: Change Ad status notification
+    date_closed_from: Date Closed (From)
+    date_closed_to: Date Closed (To)
+    hero_name: Hero Name
+    estimated_closing_date_from: Estimated Closing Date (From)
+    estimated_closing_date_to: Estimated Closing Date (To)
+    estimated_closing_price: Estimated Closing Price
+    assignment_expires: Assignment Expires
+    hidden: Hidden
+    accept_to_view: Accept to View
+    city_of_interest_property_city: City of Interest / Property City
+    account_type: Account Type
+    link: Link
+    agent_landing_page: Agent Landing Page
+    headshot: Headshot
+    company_logo: Company Logo
+    custom_base_fee: Custom Base Fee
+    account_number: Account Number
+    routing_number: Routing Number
+    choose_an_occupation: Choose an Occupation...
+    agent_terms: Agent Terms
+    terms_of_service: Terms of Service
+    accept_terms_of_service: I accept the Terms of Service
+    testimonial_explanation: Please fill in your testimonial for Hometown Heroes below. Once you have submitted your testimonial, a member of our staff will review it and, if approved, your kind words will appear on our website.
+    maximum_uses: Maximum Uses
+    duration_in_months: Duration (in months)
+    notes: Notes
+    lead_notes: Lead Notes
+    home_value_report: Home Value Report
+    home_value_reports: Home Value Reports
+    residential: Residential
+    commercial: Commercial
+    property_type: Property Type
+    number_of_bedrooms: Number of Bedrooms
+    number_of_bathrooms: Number of Bathrooms
+    square_footage: Square Footage
+    email_alert_report: Email Alert Report
+    email_alert_reports: Email Alert Reports
+    price_range: Price Range
+    under_100000: Under $100,000
+    under_150000: $101,000 - $150,000
+    under_200000: $151,000 - $200,000
+    under_250000: $201,000 - $250,000
+    under_300000: $251,000 - $300,000
+    under_350000: $301,000 - $350,000
+    under_400000: $351,000 - $400,000
+    under_450000: $401,000 - $450,000
+    under_500000: $451,000 - $500,000
+    under_550000: $501,000 - $550,000
+    under_600000: $551,000 - $600,000
+    under_650000: $601,000 - $650,000
+    under_700000: $651,000 - $700,000
+    under_750000: $701,000 - $750,000
+    under_800000: $751,000 - $800,000
+    under_850000: $801,000 - $850,000
+    under_900000: $851,000 - $900,000
+    under_950000: $901,000 - $950,000
+    under_1000000: $951,000 - $1,000,000
+    under_1250000: $1,000,000 - $1,250,000
+    under_1500000: $1,250,000 - $1,500,000
+    late_fee: Late Fee
+    preferred_loan_officer: Preferred Loan Officer
+    single_family: Single Family
+    apartment: Apartment
+    condo: Condo
+    townhouse: Townhouse
+    farm_ranch: Farm/Ranch
+    land: Land
+    multi_family: Multi-Family
+    bank_account: Bank Account
+    payment_methods: Payment Methods
+    credit_card_surcharge: 100% of your monthly fee is applied to generating leads in your area. As we keep none of these funds, the credit card processing fee of %ccSurcharge%% will be passed through to you.
+    hero_activation: Hero Activation
+    agent_territory_explanation: Leads are assigned to you based on your Territories. Deleting a Territory will stop all Leads from that area.
+    branch: Branch
+    branches: Branches
+    military: Military
+    hero_activation_type: Hero Activation Type
+    service_start_date: Service Start Date
+    service_end_date: Service End Date
+    choose_a_branch: Choose Your Branch...
+    assigned_lead_explanation: When another agent assigns a lead to you, it will appear in the list below. You can then exchange notes with the other agent but cannot edit or delete the lead.
+    choose_a_state: Choose a State...
+    choose_a_property_type: Choose a Property Type...
+    home_value_report_success: Thank You!
+    lead_creation_type: Lead Creation Type
+    claim: Claim
+    manual: Manual
+    buy_home: Buy Home
+    sell_home: Sell Home
+    services_requested: Services Requested
+    cities_of_interest: Cities of Interest
+    email_alert_report_success: Thank You!
+    vendor_whitelist: Vendor Whitelist
+    vendor_whitelisting: Vendor Whitelisting
+    trial_period_ends: Trial Period Ends
+    trial_whitelist: Trial Whitelist
+    trial_whitelisting: Trial Whitelisting
+    new_mortgage: New Mortgage
+    property_address_optional: Property Address (optional)
+    mortgage_success: Thank You!
+    real_estate_success: Thank You!
+    refunded: Refunded
+    total_results: Total Results
+    primary_agent: Primary Agent
+    lead_id: Lead ID
+    commission_received_date: Commission Received Date
+    commission_amount: Commission Amount
+    commissions_pending: Commissions Pending
+    hero_paid: Hero Paid
+    hero_paid_date: Hero Paid Date
+    hero_paid_date_from: Hero Paid Date From
+    hero_paid_date_to: Hero Paid Date To
+    hero_paid_amount: Hero Paid Amount
+    received_date_from: Received Date (From)
+    received_date_to: Received Date (To)
+    primary_agent_accepted: Primary Agent Accepted
+    lead_creation_source: Lead Creation Source
+    company_referral: Hometown Heroes
+    personal_referral: Agent Landing Page or Personal Referral
+    contact_email: Contact Email
+    contact_phone_number: Contact Phone Number
+    email_to_text: Email to Text
+    active_nurturing: Active-Nurturing
+    pre_approved_moving_forward: Pre-Approved, Moving Forward
+    refi: Refi
+    credit_repair: Credit Repair
+    waiting_on_docs: Waiting on Documents
+    under_contract: Under Contract
+    in_processing: In Processing
+    ctc: CTC
+    closed: Closed
+    dead_bad_credit: Dead-Bad Credit
+    dead_bad_contact_info: Dead-Bad Contact Information
+    dead_no_returned_contact: Dead-No Returned Contact
+    dead_used_another_lender: Dead-Used Another Lender
+    dead_other: Dead-Other
+    active_looking: Active-Looking
+    pre_approved_starting_home_search: Pre-Approved, Starting Home Search
+    home_is_listed: Home is Listed
+    dead_used_another_agent: Dead-Used Another Agent
+    primary_status: Primary Status
+    primary_agent_status: Primary Agent Status
+    primary_accepted: Primary Accepted
+    hero_lead_information: Hero/Lead Information
+    assigned_agent_information: Assigned Agent Information
+    lead_preferences: Lead Preferences
+    loan_officer: Loan Officer
+    business_terms: Business Terms
+    business_terms_last_updated: Business Terms Last Updated
+    agent_terms_last_update: Agent Terms Last Updated
+    heroes_you_offer_discounts: Heroes You Offer Discounts
+    what_type_of_business: What type of business do you have? Please choose one.
+    location_based: Location Based
+    location_based_description: Your business has a store front or office where your customers come to.
+    location_based_examples: (e.g. restaurant, retail store, mechanic, attorney office)
+    territory_based: Territory Based
+    territory_based_description: You go to your customers. Your customers do not come to your office.
+    territory_based_examples: (e.g. electrician, lawn service, home inspector)
+    heroes_referred: Heroes Referred
+    businesses_referred: Businesses Referred
+    realtors_referred: Realtors Referred
+    real_estate_leads: Real Estate Leads
+    ad_impressions: Ad Impressions
+    ad_views: Ad Views
+    ad_claims: Ad Claims
+    ad_count: Ad Count
+    leads: Leads
+    show_hours_of_operation: Show Hours of Operation
+    monday_open_time: Monday Open Time
+    monday_close_time: Monday Close Time
+    tuesday_open_time: Tuesday Open Time
+    tuesday_close_time: Tuesday Close Time
+    wednesday_open_time: Wednesday Open Time
+    wednesday_close_time: Wednesday Close Time
+    thursday_open_time: Thursday Open Time
+    thursday_close_time: Thursday Close Time
+    friday_open_time: Friday Open Time
+    friday_close_time: Friday Close Time
+    saturday_open_time: Saturday Open Time
+    saturday_close_time: Saturday Close Time
+    sunday_open_time: Sunday Open Time
+    sunday_close_time: Sunday Close Time
+    monday_is_open: Is open on Monday
+    tuesday_is_open: Is open on Tuesday
+    wednesday_is_open: Is open on Wednesday
+    thursday_is_open: Is open on Thursday
+    friday_is_open: Is open on Friday
+    saturday_is_open: Is open on Saturday
+    sunday_is_open: Is open on Sunday
+    short_weekday_1: Sun
+    short_weekday_2: Mon
+    short_weekday_3: Tue
+    short_weekday_4: Wed
+    short_weekday_5: Thu
+    short_weekday_6: Fri
+    short_weekday_7: Sat
+    percentage: Percentage
+    coupon_type: Coupon Type
+    code_show_id: Show ID
+    code_text: Text Coupon Code
+    code_bar: Bar Code
+    code_qr: QR Code
+    code_form: Form
+    location_territory: Location/Territory
+    coupon_valid_days: For how many days are new coupons valid?
+    text_coupon_code: Text Coupon Code
+    code_image: Coupon Code Image
+    discounts: Discounts
+    remove_discount: Remove Discount
+    add_discount: Add Another Discount
+    demo: Demo
+    sort_by: Sort By
+    sort_by_distance: Distance
+    sort_by_date: Date Added
+    sort_by_newest: Newest
+    sort_by_title: Title
+    radius: Distance
+    radius_5: 5 miles
+    radius_15: 15 miles
+    radius_30: 30 miles
+    radius_50: 50 miles
+    closed: Closed
+    open_time: %openTime% to %closeTime%
+    featured: Featured!
+    comments_or_questions: Comments or questions
+    contact_location_form_sent: You request has been sent successfully.
+    company_name: Company Name
+    ad_description_placeholder: In one or two paragraphs, please explain what you are offering heroes. This will show up on the Ad Detail page.
+    ad_title_placeholder: Please enter your company name or this offer title.
+    discount: Discount
+    discount_placeholder: e.g., 10% Off All Services
+    view_ad: View Ad at "%location%"
+    create_ad: Create New Ad
+    create_location: Create New Location
+    crop_image_title: Crop your image
+    crop_image: Crop Image
+    discount_amount: Discount Amount
+    accept_ad_notification_body: Accept Ad Notification Body
+    reject_ad_notification_body: Reject Ad Notification Body
+    realtor: REALTOR®
+    preview_ad: Preview Ad
+    referred_by: Referred By
+    send_hero_a_welcome_email: Send Hero a Welcome Email
+    affiliate_redirect_route: Affiliate Redirect Route
+    affiliate_landing_page_header: Affiliate Landing Page Header
+    affiliate_landing_page_body: Affiliate Landing Page Body
+    date: Date
+    ip_address: IP Address
+    device: Device
+    operating_system: Operating System
+    browser: Browser
+    language: Language
+    plan_name: Plan Name
+    awarded: Awarded
+    new_lead_accepted: New Lead – Accepted
+    initial_contact_attempt_completed: Initial Contact Attempt - completed
+    day_1_8_10_completed: Day1 – 8/10 – completed
+    day_1_12_2_completed: Day1 – 12/2 – completed
+    day_1_4_6_completed: Day1 – 4/6 – completed
+    day_1_6_8_completed: Day1 – 6/8 – completed
+    day_2_10_12_completed: Day2 – 10/12 – completed
+    day_2_2_4_completed: Day2 – 2/4 – completed
+    day_2_6_8_completed: Day2 – 6/8 – completed
+    day_5_follow_up_completed: Day5 – Follow up completed
+    day_10_follow_up_completed: Day10 – Follow up completed
+    contacted_active_prospect: Contacted – Active Prospect
+    prequalified: Prequalified
+    initial_check_list_sent: Initial Check List Sent
+    pre_approved_purchase: Pre-Approved – Purchase
+    pre_approved_refi: Pre-Approved – Refi
+    loan_disclosures_sent: Loan Disclosures Sent
+    loan_disclosures_received: Loan Disclosures Received
+    nurturing_less_than_180_days: Nurturing - <180 days
+    nurturing_more_than_180_days: Nurturing - >180 days
+    initial: Initial
+    moving_forward_now: Moving Forward Now
+    nurturing: Nurturing
+    dead: Dead
+    super_admin: Super Admin
+    state_broker: State Broker
+    district_director: District Director
+    is_district_director: Is District Director ?
+    primary_market: (Primary Market)
+    districts: Market(s)
+    district: Market
+    agent: Agent
+    email_address: Email Address
+    password: Password
+    remember_me: Remember Me
+    sign_me_in: Sign me in
+    are_you_sure: Are You Sure ?
+    role: Role
+    team_member_invitation: Hey, this is %name%. Please join my team.
+    send_activation_email: Send Activation Email
+    late: Late
+    deboarded: Inactive
+    payment_history: Payment History
+    start_date: Start Date
+    end_date: End Date
+    required: Required
+    expiration_date_required: Expiration Date Required
+    documents: Documents
+    uploaded_date: Uploaded Date
+    expiration_date: Expiration Date
+    expiring_documents_title: "You have expiring documents: <strong>%documents%</strong>. Please send us new files to email <a href='mailto:%email%'><strong>%email%</strong></a>"
+    pending_documents: Pending Documents
+    expiring_documents: Expiring Documents
+    expired_documents: Expired Documents
+    fixed: Fixed
+    variable: Variable
+    mls_dues_required: MLS Dues Required
+    mls_dues_type: MLS Dues Type
+    mls_fee: MLS Fee
+    change_plan: "IMPORTANT: To change your Plan, please %link_start%contact us%link_end%. Your current Plan is bolded below."
+    real_estate_brokerage_services: Real Estate Brokerage Services
+
+content:

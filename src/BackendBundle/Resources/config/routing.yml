@@ -1,0 +1,19 @@
+backend_index:
+    path:  /
+    defaults: { _controller: backend.security_controller:indexAction }
+
+backend_login:
+    path:  /login
+    defaults: { _controller: backend.security_controller:loginAction }
+
+backend_logout:
+    path: /logout
+    defaults: { _controller: backend.security_controller:loginAction }
+
+backend_forgot_password:
+    path: /forgot-password/
+    defaults: { _controller: backend.security_controller:forgotPasswordAction }
+
+backend_reset_password:
+    path: /reset-password/{token}
+    defaults: { _controller: backend.security_controller:resetPasswordAction }
